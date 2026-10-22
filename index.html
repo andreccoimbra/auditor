@@ -33,6 +33,11 @@
       --service-card-bg: #142c42;
       --service-card-hover: #1b3852;
       --service-icon-bg: #1b3852;
+      --service-card-heading: #f3eee4;
+      --service-card-copy: #b2bdc8;
+      --service-card-number: #edc991;
+      --service-card-icon-color: #edc991;
+      --service-card-icon-hover-bg: rgba(214, 170, 103, .15);
       --principle-line: #2c4358;
       --footer-bg: #061522;
       --footer-ink: #e4e9ed;
@@ -69,6 +74,11 @@
       --service-card-bg: #eae5da;
       --service-card-hover: #dfd7c9;
       --service-icon-bg: #ded7ca;
+      --service-card-heading: #142b40;
+      --service-card-copy: #687887;
+      --service-card-number: #875f26;
+      --service-card-icon-color: #875f26;
+      --service-card-icon-hover-bg: rgba(185, 135, 62, .15);
       --principle-line: #d6cdbd;
       --footer-bg: #10283d;
       --footer-ink: #f3eee4;
@@ -97,6 +107,8 @@
     :root[data-theme="light"] .theme-switch-thumb { transform: translateX(20px); background: var(--white); color: var(--accent-strong); }
     :root[data-theme="light"] .hero-art-dark { display: none; }
     :root[data-theme="light"] .hero-art-light { display: block; }
+    :root[data-theme="light"] .brand-logo-dark { display: none; }
+    :root[data-theme="light"] .brand-logo-light { display: block; }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 86px; }
@@ -125,21 +137,10 @@
       transition: background-color .3s ease, border-color .3s ease;
     }
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 21px; font-weight: 700; letter-spacing: -.8px; }
-    .brand-mark {
-      display: grid;
-      width: 35px;
-      height: 35px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--logo-bg);
-      color: var(--accent-strong);
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 400;
-    }
-    .brand span:last-child { color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .03em; }
-    .brand-name { display: flex; align-items: baseline; gap: 8px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; }
+    .brand-logo { display: block; width: 105px; height: auto; }
+    .brand-logo-light { display: none; }
+    .brand-description { display: flex; min-height: 32px; flex-direction: column; justify-content: center; gap: 4px; padding-left: 13px; border-left: 1px solid var(--accent); color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .08em; line-height: 1.25; text-transform: uppercase; white-space: nowrap; }
     .header-actions { display: flex; align-items: center; gap: 14px; }
     .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
     .nav a:not(.nav-cta) { position: relative; transition: color .25s; }
@@ -249,24 +250,6 @@
     .visual-card { box-shadow: 0 28px 80px var(--card-shadow); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
     .hero-art { display: block; width: 100%; height: 100%; object-fit: contain; }
     .hero-art-light { display: none; }
-    .floating-card {
-      position: absolute;
-      right: -12px;
-      bottom: 5px;
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      width: 236px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 3px;
-      background: var(--white);
-      box-shadow: 0 12px 36px var(--card-shadow);
-    }
-    .floating-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; background: var(--accent-wash); color: var(--accent-strong); font-size: 17px; }
-    .floating-card strong { display: block; margin-bottom: 4px; font-size: 12px; }
-    .floating-card small { color: var(--muted); font-size: 10px; }
-
     .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .trust-inner { display: flex; min-height: 92px; align-items: center; justify-content: space-between; gap: 28px; }
     .trust-copy { max-width: 185px; color: var(--muted); font-size: 11px; line-height: 1.55; }
@@ -287,16 +270,22 @@
     }
     .section-intro { max-width: 345px; margin-bottom: 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .service-card { position: relative; min-height: 257px; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+    .service-card { position: relative; min-height: 257px; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); color: var(--service-card-heading); transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; }
     .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px var(--hover-shadow); transform: translateY(-4px); }
-    .service-number { color: var(--accent-strong); font-family: var(--serif); font-size: 13px; }
-    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--accent-strong); transition: background-color .25s, color .25s, transform .25s; }
-    .service-card:hover .service-icon { background: var(--accent-wash); transform: scale(1.06); }
+    .service-number { color: var(--service-card-number); font-family: var(--serif); font-size: 13px; }
+    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--service-card-icon-color); transition: background-color .25s, color .25s, transform .25s; }
+    .service-card:hover .service-icon { background: var(--service-card-icon-hover-bg); transform: scale(1.06); }
     .service-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
-    .service-card h3 { margin-bottom: 9px; font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
-    .service-card p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .service-card h3 { margin-bottom: 9px; color: var(--service-card-heading); font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
+    .service-card p { max-width: 280px; margin-bottom: 0; color: var(--service-card-copy); font-size: 12px; line-height: 1.7; }
     .service-card .service-detail, .service-card .service-delivery { margin-top: 10px; }
-    .service-card .service-delivery strong { color: var(--ink); font-weight: 650; }
+    .service-card .service-delivery strong { color: var(--service-card-heading); font-weight: 650; }
+    .service-areas { margin-top: 38px; }
+    .service-areas h3 { margin: 0 0 16px; color: var(--muted); font-size: 11px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+    .service-areas-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .service-areas-list li { display: flex; min-height: 72px; align-items: center; gap: 15px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font-size: 15px; font-weight: 600; transition: border-color .2s ease, background-color .2s ease; }
+    .service-areas-list li:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .service-areas-list svg { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: var(--accent-strong); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 
     .about { padding: 86px 0; background: var(--section-surface); transition: background-color .3s ease; }
     .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 95px; align-items: start; }
@@ -309,6 +298,28 @@
     .principle h3 { margin: 0; font-size: 13px; font-weight: 650; }
     .principle p { margin: 0 0 0 29px; color: var(--muted); font-size: 11px; line-height: 1.7; }
 
+    .methodology { padding: 86px 0 104px; animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
+    .methodology-back { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 30px; color: var(--accent-strong); font-size: 12px; font-weight: 650; transition: color .2s ease, gap .2s ease; }
+    .methodology-back:hover { gap: 13px; color: var(--accent-hover); }
+    .methodology-back span { font-size: 17px; line-height: 1; }
+    .methodology-heading { max-width: 760px; margin-bottom: 58px; }
+    .methodology-heading h1 { max-width: 760px; margin: 18px 0; font-size: clamp(43px, 6vw, 70px); }
+    .methodology-heading > p { max-width: 710px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .methodology-steps-heading { margin: 0 0 20px; font-family: var(--serif); font-size: 29px; font-weight: 400; }
+    .methodology-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 38px; margin: 0; padding: 0; list-style: none; }
+    .methodology-step { padding: 24px 0 27px; border-top: 1px solid var(--line); }
+    .methodology-step:last-child { grid-column: 1 / -1; }
+    .methodology-step h3 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 12px; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .methodology-step h3 span { flex: 0 0 auto; color: var(--accent-strong); font-size: 16px; }
+    .methodology-step p { max-width: 500px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .methodology-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 44px; padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .methodology-notes h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 25px; font-weight: 400; }
+    .methodology-notes p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .methodology-cta { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-top: 58px; }
+    .methodology-cta h2 { max-width: 570px; margin: 0; font-family: var(--serif); font-size: clamp(34px, 4.5vw, 52px); font-weight: 400; letter-spacing: -.05em; line-height: 1.08; }
+    .methodology-cta p { max-width: 440px; margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .methodology-cta .button { flex: 0 0 auto; }
+
     .contact { position: relative; overflow: hidden; margin-top: clamp(32px, 5vw, 64px); padding: 83px 0; background: var(--section-surface); color: var(--ink); transition: background-color .3s ease; }
     .contact:after { position: absolute; top: -225px; right: -110px; width: 560px; height: 560px; border: 1px solid var(--accent-wash); border-radius: 50%; content: ""; box-shadow: 0 0 0 55px var(--section-surface), 0 0 0 56px var(--accent-soft), 0 0 0 116px var(--section-surface), 0 0 0 117px var(--accent-wash); }
     .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 35px; }
@@ -319,8 +330,7 @@
 
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { color: var(--ink); font-size: 15px; }
-    .footer-brand .brand-mark { width: 27px; height: 27px; background: var(--accent-wash); color: var(--accent-strong); font-size: 17px; }
+    .footer-brand .brand-logo { width: 91px; }
     .footer-note, .footer-links { color: var(--footer-muted); font-size: 10px; }
     .footer-links { display: flex; gap: 21px; }
     .footer-links a:hover { color: var(--accent-strong); }
@@ -337,6 +347,7 @@
     .service-card.js-reveal:nth-child(4), .principle.js-reveal:nth-child(4) { transition-delay: .24s; }
     @keyframes hero-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes visual-arrive { from { opacity: 0; transform: translateY(20px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes page-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 850px) {
       .container { width: min(100% - 42px, 700px); }
@@ -345,7 +356,6 @@
       .hero-grid { gap: 24px; }
       .hero-visual { min-height: 350px; }
       .visual-card { top: 20px; }
-      .floating-card { right: -7px; width: 205px; padding: 13px; }
       .trust-inner { min-height: 100px; }
       .trust-items { gap: 10px; }
       .trust-item { font-size: 12px; }
@@ -355,6 +365,8 @@
       .container { width: calc(100% - 40px); }
       .topbar { height: 70px; }
       .header-actions { gap: 8px; }
+      .brand-logo { width: 84px; }
+      .brand-description { font-size: 8px; letter-spacing: .05em; }
       .theme-toggle { width: 42px; height: 42px; min-height: 42px; padding: 0; }
       .nav-cta-desktop { display: none; }
       .nav-cta-mobile { display: inline-flex; }
@@ -372,7 +384,6 @@
       .hero-visual { min-height: 250px; }
       .visual-card { top: 0; right: 0; width: calc(100% - 13px); }
       html { scroll-padding-top: 70px; }
-      .floating-card { right: -2px; bottom: 0; width: 212px; }
       .trust-inner { align-items: flex-start; flex-direction: column; padding: 21px 0; gap: 17px; }
       .trust-copy { max-width: none; }
       .trust-items { width: 100%; justify-content: space-between; gap: 8px; }
@@ -386,10 +397,26 @@
       .service-card { min-height: 0; padding: 22px; }
       .service-icon { margin: 14px 0; }
       .service-card h3 { font-size: 19px; }
+      .service-areas { margin-top: 30px; }
+      .service-areas-list { grid-template-columns: 1fr; gap: 9px; }
+      .service-areas-list li { min-height: 64px; padding: 15px 16px; font-size: 14px; }
       .about { padding: 65px 0; }
       .about-grid { grid-template-columns: 1fr; gap: 36px; }
       .about-copy p { font-size: 13px; }
       .principles { gap: 0 20px; }
+      .methodology { padding: 62px 0 76px; }
+      .methodology-back { margin-bottom: 25px; }
+      .methodology-heading { margin-bottom: 40px; }
+      .methodology-heading h1 { font-size: 46px; }
+      .methodology-heading > p { font-size: 14px; }
+      .methodology-steps-heading { font-size: 25px; }
+      .methodology-steps { grid-template-columns: 1fr; }
+      .methodology-step:last-child { grid-column: auto; }
+      .methodology-step { padding: 21px 0; }
+      .methodology-step h3 { font-size: 19px; }
+      .methodology-notes { grid-template-columns: 1fr; gap: 26px; margin-top: 30px; padding: 26px 0; }
+      .methodology-notes h2 { font-size: 23px; }
+      .methodology-cta { align-items: flex-start; flex-direction: column; margin-top: 42px; }
       .contact { padding: 67px 0; }
       .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
       .contact h2 { font-size: 46px; }
@@ -406,14 +433,16 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#inicio" aria-label="audita.mos — início">
-        <span class="brand-mark" aria-hidden="true">a</span>
-        <span class="brand-name">audita.mos <span>auditoria interna</span></span>
+        <img class="brand-logo brand-logo-dark" src="assets/logo-ar-cc.svg" alt="">
+        <img class="brand-logo brand-logo-light" src="assets/logo-ar-cc-claro.svg" alt="">
+        <span class="brand-description"><span>Auditoria · Consultoria</span><span>Gestão de riscos</span></span>
       </a>
       <nav class="nav" id="main-nav" aria-label="Navegação principal">
-        <a href="#abordagem">Abordagem</a>
+        <a href="#inicio">Início</a>
         <a href="#servicos">Serviços</a>
+        <a href="#abordagem">Abordagem</a>
         <a href="#sobre">Sobre nós</a>
-        <a class="nav-cta nav-cta-mobile" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="nav-cta nav-cta-mobile" href="#contacto">Contactos <span class="arrow" aria-hidden="true">↗</span></a>
       </nav>
       <div class="header-actions">
         <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-label="Tema claro" aria-checked="false">
@@ -423,7 +452,7 @@
             <span class="theme-switch-thumb"><svg id="theme-thumb-icon" viewBox="0 0 24 24"></svg></span>
           </span>
         </button>
-        <a class="nav-cta nav-cta-desktop" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="nav-cta nav-cta-desktop" href="#contacto">Contactos <span class="arrow" aria-hidden="true">↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -431,7 +460,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="home-view">
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-content">
@@ -446,12 +475,8 @@
         </div>
         <div class="hero-visual">
           <div class="visual-card">
-            <img class="hero-art hero-art-dark" src="assets/hero-ar-cc-escuro.svg" alt="Identidade AR/CC em azul-marinho e dourado, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
-            <img class="hero-art hero-art-light" src="assets/hero-ar-cc-claro.svg" alt="Identidade AR/CC em fundo marfim e azul-marinho, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
-          </div>
-          <div class="floating-card">
-            <span class="floating-icon" aria-hidden="true">↗</span>
-            <span><strong>Valor que se vê</strong><small>Recomendações acionáveis</small></span>
+            <img class="hero-art hero-art-dark" src="assets/hero-ar-cc-claro.svg?v=3" alt="Identidade AR/CC em fundo marfim e azul-marinho, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
+            <img class="hero-art hero-art-light" src="assets/hero-ar-cc-escuro.svg?v=3" alt="Identidade AR/CC em azul-marinho e dourado, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
           </div>
         </div>
       </div>
@@ -503,24 +528,15 @@
             <p class="service-detail">Monitorização de indicadores, acompanhamento das ações implementadas e revisão dos processos.</p>
             <p class="service-delivery"><strong>Entrega:</strong> avaliações periódicas e relatórios de acompanhamento.</p>
           </article>
-          <article class="service-card">
-            <span class="service-number">04 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8.5"/></svg></span>
-            <h3>Conformidade</h3>
-            <p>Apoio na avaliação de políticas e procedimentos face aos requisitos legais e regulamentares aplicáveis.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-number">05 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18.5 9.5 13l3.5 3.5L20 9.5"/><path d="M14.5 9.5H20V15"/></svg></span>
-            <h3>Melhoria de processos</h3>
-            <p>Análise de oportunidades para simplificar operações, melhorar resultados e apoiar o crescimento.</p>
-          </article>
-          <article class="service-card">
-            <span class="service-number">06 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16"/><path d="m7 15 4-4 3 2 5-6"/><circle cx="19" cy="7" r="1"/></svg></span>
-            <h3>Auditoria de TI</h3>
-            <p>Revisão de controlos tecnológicos, acessos e processos de informação para apoiar operações seguras e fiáveis.</p>
-          </article>
+        </div>
+        <div class="service-areas js-reveal">
+          <h3>Áreas de atuação</h3>
+          <ul class="service-areas-list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Auditoria interna e controlo interno</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Qualidade e conformidade</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Gestão de riscos</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>Melhoria e otimização de processos</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -530,25 +546,26 @@
         <div class="about-copy">
           <span class="eyebrow">A nossa abordagem</span>
           <h2>Do diagnóstico à mudança que importa.</h2>
-          <p>Uma auditoria só é útil quando conduz a decisões melhores. Trabalhamos lado a lado com as equipas para compreender o contexto, comunicar sem rodeios e propor melhorias realistas.</p>
-          <a class="about-link" href="#contacto">Descubra como podemos ajudar <span class="arrow" aria-hidden="true">↗</span></a>
+          <p>Acreditamos que uma auditoria deve ir além da identificação de fragilidades. O verdadeiro valor está em compreender os processos, reconhecer os riscos e propor melhorias concretas, ajustadas à realidade de cada organização.</p>
+          <p>Trabalhamos em proximidade com os nossos clientes, combinando rigor técnico, análise fundamentada e soluções orientadas para resultados.</p>
+          <a class="about-link" href="#metodologia">Conheça a nossa metodologia <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
         <div class="principles">
           <article class="principle">
-            <div class="principle-top"><span class="principle-index">01</span><h3>Independência</h3></div>
-            <p>Análise objetiva e imparcial, centrada no interesse da organização.</p>
+            <div class="principle-top"><span class="principle-index">01</span><h3>Rigor e independência</h3></div>
+            <p>Avaliações fundamentadas em critérios objetivos, evidências e princípios éticos.</p>
           </article>
           <article class="principle">
             <div class="principle-top"><span class="principle-index">02</span><h3>Proximidade</h3></div>
-            <p>Escuta ativa e colaboração para compreender os desafios reais.</p>
+            <p>Compreendemos a realidade e os desafios de cada organização, privilegiando uma relação de confiança.</p>
           </article>
           <article class="principle">
-            <div class="principle-top"><span class="principle-index">03</span><h3>Pragmatismo</h3></div>
-            <p>Recomendações claras, proporcionais e com aplicação prática.</p>
+            <div class="principle-top"><span class="principle-index">03</span><h3>Orientação para a ação</h3></div>
+            <p>Apresentamos recomendações claras, proporcionais e exequíveis, com prioridades definidas.</p>
           </article>
           <article class="principle">
             <div class="principle-top"><span class="principle-index">04</span><h3>Confidencialidade</h3></div>
-            <p>Discrição e cuidado no tratamento de cada informação partilhada.</p>
+            <p>Protegemos a informação disponibilizada e respeitamos os deveres de reserva e proteção de dados.</p>
           </article>
         </div>
       </div>
@@ -568,9 +585,61 @@
     </section>
   </main>
 
+  <main id="methodology-view" hidden>
+    <section class="methodology">
+      <div class="container">
+        <a class="methodology-back" href="#inicio"><span aria-hidden="true">←</span> Voltar à página principal</a>
+        <div class="methodology-heading">
+          <span class="eyebrow">A nossa metodologia</span>
+          <h1 id="methodology-title" tabindex="-1">Um método claro.<br>Resultados que importam.</h1>
+          <p>Trabalhamos com uma metodologia estruturada, adaptada à realidade de cada organização. Da identificação de riscos à monitorização dos resultados, privilegiamos a análise fundamentada, a definição de prioridades e o acompanhamento das melhorias.</p>
+        </div>
+        <h2 class="methodology-steps-heading">Analisar. Melhorar. Evoluir.</h2>
+        <ol class="methodology-steps">
+          <li class="methodology-step">
+            <h3><span>01 —</span> Diagnóstico e levantamento</h3>
+            <p>Conhecemos a organização, analisamos documentos e processos, ouvimos os intervenientes e identificamos necessidades, riscos e fragilidades.</p>
+          </li>
+          <li class="methodology-step">
+            <h3><span>02 —</span> Avaliação de riscos e planeamento</h3>
+            <p>Avaliamos os mecanismos de controlo existentes e definimos recomendações e prioridades, organizadas num plano de ação com responsáveis e prazos.</p>
+          </li>
+          <li class="methodology-step">
+            <h3><span>03 —</span> Apoio à implementação</h3>
+            <p>Apoiamos a estruturação de procedimentos, instrumentos de controlo e medidas de melhoria adequadas à realidade da organização.</p>
+          </li>
+          <li class="methodology-step">
+            <h3><span>04 —</span> Monitorização e avaliação</h3>
+            <p>Acompanhamos as ações acordadas, verificamos evidências de execução e avaliamos a eficácia das medidas implementadas.</p>
+          </li>
+          <li class="methodology-step">
+            <h3><span>05 —</span> Melhoria contínua e reporte</h3>
+            <p>Analisamos indicadores, comunicamos os resultados e identificamos oportunidades para novos ciclos de melhoria.</p>
+          </li>
+        </ol>
+        <div class="methodology-notes">
+          <div>
+            <h2>Uma intervenção ajustada a cada organização</h2>
+            <p>Cada projeto é definido em função das necessidades, dimensão e complexidade da organização. As fases e os entregáveis são ajustados ao âmbito contratado, não sendo obrigatória a realização de todas as etapas.</p>
+          </div>
+          <div>
+            <p>A AR/CC apoia a análise, o planeamento e o acompanhamento das melhorias. A aprovação das decisões e a execução operacional permanecem sob responsabilidade da organização cliente.</p>
+          </div>
+        </div>
+        <div class="methodology-cta">
+          <div>
+            <h2>Vamos identificar as prioridades da sua organização?</h2>
+            <p>Partilhe connosco os seus desafios e conheça a abordagem mais adequada às suas necessidades.</p>
+          </div>
+          <a class="button" href="mailto:contacto@audita.mos?subject=Solicitar%20uma%20reuni%C3%A3o">Solicitar uma reunião <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container footer-inner">
-      <a class="brand footer-brand" href="#inicio" aria-label="audita.mos — início"><span class="brand-mark" aria-hidden="true">a</span><span>audita.mos</span></a>
+      <a class="brand footer-brand" href="#inicio" aria-label="audita.mos — início"><img class="brand-logo" src="assets/logo-ar-cc.svg" alt=""></a>
       <span class="footer-note">Auditoria interna com visão de futuro.</span>
       <div class="footer-links"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
       <span class="footer-note">© <span id="year">2026</span> audita.mos</span>
@@ -582,6 +651,29 @@
     const navigation = document.querySelector("#main-nav");
     const themeToggle = document.querySelector("#theme-toggle");
     const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+    const homeView = document.querySelector("#home-view");
+    const methodologyView = document.querySelector("#methodology-view");
+    const homeTitle = document.title;
+    const renderRoute = (initial = false) => {
+      const isMethodology = window.location.hash === "#metodologia";
+      homeView.hidden = isMethodology;
+      methodologyView.hidden = !isMethodology;
+      document.title = isMethodology
+        ? "A nossa metodologia — audita.mos"
+        : homeTitle;
+
+      if (isMethodology) {
+        navLinks.forEach((link) => link.removeAttribute("aria-current"));
+        window.scrollTo(0, 0);
+        document.querySelector("#methodology-title").focus({ preventScroll: true });
+      } else if (!initial && window.location.hash) {
+        const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        target?.scrollIntoView();
+      }
+    };
+    window.addEventListener("hashchange", () => renderRoute());
+    renderRoute(true);
+
     const updateThemeControl = () => {
       const isLight = document.documentElement.dataset.theme === "light";
       const actionLabel = isLight ? "Ativar tema escuro" : "Ativar tema claro";
@@ -628,7 +720,7 @@
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const animatedElements = document.querySelectorAll(
-      ".section-heading, .service-card, .about-copy, .principle, .contact-inner, .trust-inner"
+      ".section-heading, .service-card, .service-areas, .about-copy, .principle, .contact-inner, .trust-inner"
     );
 
     if ("IntersectionObserver" in window && !reduceMotion) {
@@ -643,8 +735,12 @@
       }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
       animatedElements.forEach((element) => revealObserver.observe(element));
 
-      const trackedSections = [...document.querySelectorAll("#servicos, #abordagem, #sobre, #contacto")];
+      const trackedSections = [...document.querySelectorAll("#inicio, #servicos, #abordagem, #sobre, #contacto")];
       const updateActiveLink = () => {
+        if (homeView.hidden) {
+          navLinks.forEach((link) => link.removeAttribute("aria-current"));
+          return;
+        }
         const activeSection = [...trackedSections].reverse().find(
           (section) => section.getBoundingClientRect().top <= window.innerHeight * 0.35
         );
