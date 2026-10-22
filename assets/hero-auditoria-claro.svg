@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" fill="none">
+  <defs>
+    <linearGradient id="background" x1="100" y1="45" x2="810" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F3EB"/>
+      <stop offset="1" stop-color="#E8E5D9"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="245" y1="151" x2="574" y2="657" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F6F4ED"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="477" y1="193" x2="751" y2="477" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5BD52"/>
+      <stop offset="1" stop-color="#AE8425"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#77745F" stroke-opacity=".08"/>
+    </pattern>
+    <filter id="shadow" x="145" y="96" width="632" height="625" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="22"/>
+      <feOffset dy="18"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".16"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow" x="447" y="130" width="376" height="394" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="760" rx="12" fill="url(#background)"/>
+  <rect width="900" height="760" rx="12" fill="url(#grid)"/>
+  <circle cx="676" cy="326" r="170" fill="#D9B345" fill-opacity=".1" filter="url(#glow)"/>
+  <path d="M0 574 900 370v390H0V574Z" fill="#DDDACE" fill-opacity=".52"/>
+  <path d="m0 575 900-205M0 627l900-205M0 679l900-205M0 731l900-205" stroke="#817E6A" stroke-opacity=".12"/>
+  <path d="m122 760 177-247m-45 247 177-247m-45 247 177-247m-45 247 177-247m-45 247 177-247" stroke="#817E6A" stroke-opacity=".08"/>
+
+  <g opacity=".78">
+    <path d="M45 221h96v303H45z" fill="#E8E5DB" stroke="#898572" stroke-opacity=".42"/>
+    <path d="M63 245h60M63 265h60M63 285h60M63 305h60M63 325h60M63 345h60M63 365h60M63 385h60M63 405h60M63 425h60M63 445h60M63 465h60" stroke="#6C6A5E" stroke-opacity=".23" stroke-width="2"/>
+    <path d="M47 217h92" stroke="#B38A2B" stroke-opacity=".75" stroke-width="3"/>
+  </g>
+
+  <g filter="url(#shadow)" transform="rotate(-5 445 399)">
+    <rect x="221" y="126" width="393" height="521" rx="8" fill="url(#paper)" stroke="#C7C2B2"/>
+    <path d="M258 168h122" stroke="#BF962F" stroke-width="3" stroke-linecap="round"/>
+    <text x="258" y="204" fill="#26332C" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="2">AUDITORIA INTERNA</text>
+    <text x="258" y="228" fill="#73766D" font-family="Arial, sans-serif" font-size="11" letter-spacing="1.5">RISCO E CONTROLO</text>
+    <path d="M258 250h319" stroke="#686B60" stroke-opacity=".2"/>
+    <text x="258" y="281" fill="#60665C" font-family="Arial, sans-serif" font-size="11" letter-spacing="1">AMBIENTE DE CONTROLO</text>
+    <rect x="258" y="300" width="319" height="103" rx="4" fill="#F0EEE6" stroke="#D8D5CB"/>
+    <path d="M282 376v-37m39 37v-54m39 54v-29m39 29v-68m39 68v-43m39 43v-60m39 60v-81" stroke="url(#gold)" stroke-linecap="round" stroke-width="8"/>
+    <path d="M277 378h281" stroke="#77766C" stroke-opacity=".24"/>
+    <text x="258" y="438" fill="#60665C" font-family="Arial, sans-serif" font-size="11" letter-spacing="1">PONTOS DE ANÁLISE</text>
+    <circle cx="267" cy="467" r="8" fill="#BF962F" fill-opacity=".17"/>
+    <path d="m263 467 3 3 5-6" stroke="#9B741C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path d="M287 464h235M287 476h173" stroke="#66695F" stroke-opacity=".34" stroke-linecap="round" stroke-width="3"/>
+    <circle cx="267" cy="513" r="8" fill="#BF962F" fill-opacity=".17"/>
+    <path d="m263 513 3 3 5-6" stroke="#9B741C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path d="M287 510h258M287 522h191" stroke="#66695F" stroke-opacity=".34" stroke-linecap="round" stroke-width="3"/>
+    <circle cx="267" cy="559" r="8" fill="#BF962F" fill-opacity=".17"/>
+    <path d="m263 559 3 3 5-6" stroke="#9B741C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path d="M287 556h212M287 568h166" stroke="#66695F" stroke-opacity=".34" stroke-linecap="round" stroke-width="3"/>
+    <rect x="258" y="600" width="93" height="22" rx="11" fill="#BF962F" fill-opacity=".12"/>
+    <text x="273" y="615" fill="#846518" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1">CONFIDENCIAL</text>
+  </g>
+
+  <g transform="rotate(8 669 322)">
+    <circle cx="654" cy="301" r="103" fill="#F3F0E6" fill-opacity=".97" stroke="url(#gold)" stroke-opacity=".9" stroke-width="2"/>
+    <circle cx="654" cy="301" r="78" stroke="#888574" stroke-opacity=".22"/>
+    <path d="M654 223a78 78 0 1 1-65.75 36.02" stroke="url(#gold)" stroke-linecap="round" stroke-width="11"/>
+    <path d="M654 223v78h78" stroke="#888574" stroke-opacity=".28"/>
+    <circle cx="654" cy="301" r="7" fill="#B88D2D"/>
+    <path d="m728 377 78 78" stroke="#AE8425" stroke-linecap="round" stroke-width="18"/>
+    <path d="m728 377 78 78" stroke="#E3BF66" stroke-linecap="round" stroke-width="5"/>
+  </g>
+
+  <g>
+    <rect x="607" y="533" width="213" height="96" rx="5" fill="#FCFBF7" stroke="#D8D4C7"/>
+    <circle cx="639" cy="567" r="11" fill="#BF962F" fill-opacity=".14"/>
+    <path d="m634 567 4 4 7-8" stroke="#9B741C" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path d="M663 562h126M663 576h93" stroke="#686B60" stroke-opacity=".43" stroke-linecap="round" stroke-width="3"/>
+    <path d="M630 603h159" stroke="#817E6A" stroke-opacity=".19"/>
+    <text x="630" y="618" fill="#846518" font-family="Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.2">ANÁLISE ACIONÁVEL</text>
+  </g>
+
+  <circle cx="792" cy="118" r="3" fill="#B88D2D"/>
+  <circle cx="792" cy="118" r="9" stroke="#B88D2D" stroke-opacity=".3"/>
+  <path d="M721 118h48M792 141v32" stroke="#B88D2D" stroke-opacity=".36" stroke-dasharray="2 6"/>
+</svg>

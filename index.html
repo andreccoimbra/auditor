@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Auditoria interna independente para empresas que querem crescer com confiança. Avaliação de riscos, processos e controlos internos.">
+  <title>Nexo — Auditoria interna com visão de futuro</title>
+  <script>
+    const savedTheme = localStorage.getItem("nexo-theme");
+    document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #10110f;
+      --white: #1b1d19;
+      --surface: #191a16;
+      --section-surface: #181915;
+      --ink: #f3f1e8;
+      --muted: #a7a79d;
+      --green: #f2c94c;
+      --green-dark: #d9ad31;
+      --lime: #ffd966;
+      --line: #30312b;
+      --header-bg: rgba(16, 17, 15, .88);
+      --header-line: rgba(255, 255, 255, .08);
+      --mobile-nav-bg: rgba(16, 17, 15, .97);
+      --logo-bg: #28261b;
+      --button-ink: #17150e;
+      --trust-ink: #deddd3;
+      --trust-muted: #87877d;
+      --service-card-bg: #1d1f1b;
+      --service-card-hover: #272822;
+      --service-icon-bg: #272822;
+      --principle-line: #34352e;
+      --footer-bg: #0b0c0a;
+      --footer-ink: #d6d4c9;
+      --footer-muted: #9e9d93;
+      --accent-wash: rgba(242, 201, 76, .12);
+      --accent-soft: rgba(242, 201, 76, .1);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --paper: #f7f7f4;
+      --white: #fff;
+      --surface: #fff;
+      --section-surface: #eeeee7;
+      --ink: #172a25;
+      --muted: #68736e;
+      --green: #d7ad37;
+      --green-dark: #bf941e;
+      --lime: #8c690f;
+      --line: #e1e2db;
+      --header-bg: rgba(247, 247, 244, .9);
+      --header-line: rgba(23, 42, 37, .1);
+      --mobile-nav-bg: rgba(247, 247, 244, .98);
+      --logo-bg: #eee8d5;
+      --button-ink: #231c0b;
+      --trust-ink: #48564f;
+      --trust-muted: #778078;
+      --service-card-bg: #eae9e2;
+      --service-card-hover: #e1dfd5;
+      --service-icon-bg: #dfddd2;
+      --principle-line: #d5d8ce;
+      --footer-bg: #e9e7dc;
+      --footer-ink: #26342d;
+      --footer-muted: #667168;
+      --accent-wash: rgba(190, 146, 30, .12);
+      --accent-soft: rgba(190, 146, 30, .09);
+    }
+
+    :root[data-theme="light"] .nav-cta,
+    :root[data-theme="light"] .button { color: #231c0b; }
+    :root[data-theme="light"] .eyebrow,
+    :root[data-theme="light"] h1 em { color: #80600c; }
+    :root[data-theme="light"] .nav a:not(.nav-cta):hover,
+    :root[data-theme="light"] .nav a[aria-current="location"],
+    :root[data-theme="light"] .nav a:not(.nav-cta):after { color: #80600c; }
+    :root[data-theme="light"] .nav a:not(.nav-cta):after { background: #a27d1b; }
+    :root[data-theme="light"] .nav-cta:hover,
+    :root[data-theme="light"] .button:hover { border-color: #ae8518; background: #ae8518; }
+    :root[data-theme="light"] .button-light { border-color: rgba(142, 105, 15, .55); color: #765709; }
+    :root[data-theme="light"] .button-light:hover { border-color: #80600c; background: rgba(190, 146, 30, .09); }
+    :root[data-theme="light"] .theme-switch { background: #d8d5ca; }
+    :root[data-theme="light"] .theme-switch-thumb { transform: translateX(20px); background: #fff; color: #80600c; }
+    :root[data-theme="light"] .hero-art-dark { display: none; }
+    :root[data-theme="light"] .hero-art-light { display: block; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      transition: background-color .3s ease, color .3s ease;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
+
+    .topbar {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--header-line);
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      transition: background-color .3s ease, border-color .3s ease;
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 21px; font-weight: 700; letter-spacing: -.8px; }
+    .brand-mark {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--logo-bg);
+      color: var(--lime);
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+    }
+    .brand span:last-child { color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .03em; }
+    .brand-name { display: flex; align-items: baseline; gap: 8px; }
+    .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
+    .nav a:not(.nav-cta) { position: relative; transition: color .25s; }
+    .nav a:not(.nav-cta):after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--lime); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav a:not(.nav-cta):hover, .nav a[aria-current="location"] { color: var(--lime); }
+    .nav a:not(.nav-cta):hover:after, .nav a[aria-current="location"]:after { transform: scaleX(1); }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 40px;
+      padding: 0 3px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 12px;
+      cursor: pointer;
+      transition: color .2s;
+    }
+    .theme-toggle:hover { color: var(--lime); }
+    .theme-switch { position: relative; display: inline-flex; width: 43px; height: 24px; flex: 0 0 43px; align-items: center; justify-content: space-between; padding: 0 5px; border: 1px solid var(--line); border-radius: 999px; background: #292a25; transition: background-color .25s, border-color .25s; }
+    .theme-switch-icon { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+    .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--lime); color: #28200c; transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
+    .theme-switch-thumb svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 19px;
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      background: var(--green);
+      color: var(--button-ink);
+      font-size: 13px;
+      font-weight: 600;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .nav-cta:hover, .button:hover { border-color: var(--green-dark); background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,201,76,.16); }
+    .button-light { border-color: rgba(242,201,76,.55); background: transparent; color: var(--lime); }
+    .button-light:hover { border-color: var(--lime); background: var(--accent-soft); }
+    .arrow { font-size: 17px; line-height: 1; }
+    .menu-toggle { display: none; border: 0; background: none; color: var(--ink); cursor: pointer; }
+
+    .hero { position: relative; overflow: hidden; padding: 91px 0 90px; }
+    .hero:after {
+      position: absolute;
+      z-index: -1;
+      top: -290px;
+      right: -280px;
+      width: 690px;
+      height: 690px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 52px var(--paper), 0 0 0 53px var(--line), 0 0 0 116px var(--paper), 0 0 0 117px var(--line);
+      opacity: .7;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 66px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--lime);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .eyebrow:before { width: 24px; height: 1px; background: var(--green-dark); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 590px;
+      margin: 22px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6.3vw, 76px);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .99;
+    }
+    h1 em { color: var(--lime); font-weight: 400; }
+    .hero-copy { max-width: 465px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 30px; }
+    .text-link { display: inline-flex; align-items: center; gap: 9px; padding: 12px 7px; font-size: 13px; font-weight: 600; }
+    .text-link span { color: var(--lime); font-size: 18px; }
+    .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 37px; color: var(--muted); font-size: 11px; }
+    .note-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px var(--accent-wash); }
+
+    .hero-visual { position: relative; min-height: 420px; }
+    .visual-card {
+      position: absolute;
+      top: 28px;
+      right: 8px;
+      width: min(100%, 440px);
+      height: 374px;
+      overflow: hidden;
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--ink);
+    }
+    .visual-card { box-shadow: 0 28px 80px rgba(0,0,0,.35); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
+    .hero-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .hero-art-light { display: none; }
+    .floating-card {
+      position: absolute;
+      right: -12px;
+      bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      width: 236px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: var(--white);
+      box-shadow: 0 12px 36px rgba(0,0,0,.24);
+    }
+    .floating-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; background: var(--accent-wash); color: var(--lime); font-size: 17px; }
+    .floating-card strong { display: block; margin-bottom: 4px; font-size: 12px; }
+    .floating-card small { color: var(--muted); font-size: 10px; }
+
+    .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .trust-inner { display: flex; min-height: 92px; align-items: center; justify-content: space-between; gap: 28px; }
+    .trust-copy { max-width: 185px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .trust-items { display: flex; flex: 1; align-items: center; justify-content: space-around; gap: 20px; }
+    .trust-item { color: var(--trust-ink); font-family: var(--serif); font-size: 15px; letter-spacing: -.03em; }
+    .trust-item span { display: block; margin-bottom: 3px; color: var(--trust-muted); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: .11em; text-align: center; text-transform: uppercase; }
+
+    .section { padding: 108px 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 45px; margin-bottom: 48px; }
+    .section-heading h2, .about-copy h2, .contact h2 {
+      max-width: 570px;
+      margin: 15px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(37px, 4.5vw, 54px);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: 1.06;
+    }
+    .section-intro { max-width: 345px; margin-bottom: 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .service-card { position: relative; min-height: 257px; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+    .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px rgba(0,0,0,.16); transform: translateY(-4px); }
+    .service-number { color: var(--lime); font-family: var(--serif); font-size: 13px; }
+    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--lime); transition: background-color .25s, color .25s, transform .25s; }
+    .service-card:hover .service-icon { background: var(--accent-wash); transform: scale(1.06); }
+    .service-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
+    .service-card h3 { margin-bottom: 9px; font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
+    .service-card p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    .about { padding: 86px 0; background: var(--section-surface); transition: background-color .3s ease; }
+    .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 95px; align-items: start; }
+    .about-copy p { max-width: 435px; margin: 22px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .about-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; color: var(--lime); font-size: 12px; font-weight: 700; }
+    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+    .principle { padding: 21px 0; border-top: 1px solid var(--principle-line); }
+    .principle-top { display: flex; align-items: center; gap: 11px; margin-bottom: 8px; }
+    .principle-index { color: var(--lime); font-family: var(--serif); font-size: 12px; }
+    .principle h3 { margin: 0; font-size: 13px; font-weight: 650; }
+    .principle p { margin: 0 0 0 29px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+
+    .contact { position: relative; overflow: hidden; margin-top: clamp(32px, 5vw, 64px); padding: 83px 0; background: var(--section-surface); color: var(--ink); transition: background-color .3s ease; }
+    .contact:after { position: absolute; top: -225px; right: -110px; width: 560px; height: 560px; border: 1px solid var(--accent-wash); border-radius: 50%; content: ""; box-shadow: 0 0 0 55px var(--section-surface), 0 0 0 56px var(--accent-soft), 0 0 0 116px var(--section-surface), 0 0 0 117px var(--accent-wash); }
+    .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 35px; }
+    .contact .eyebrow { color: var(--lime); }
+    .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
+    .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .contact-action { flex: 0 0 auto; padding-bottom: 5px; }
+
+    footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { color: var(--ink); font-size: 15px; }
+    .footer-brand .brand-mark { width: 27px; height: 27px; background: var(--accent-wash); color: var(--lime); font-size: 17px; }
+    .footer-note, .footer-links { color: var(--footer-muted); font-size: 10px; }
+    .footer-links { display: flex; gap: 21px; }
+    .footer-links a:hover { color: var(--lime); }
+
+    .hero-content > * { animation: hero-enter .65s both cubic-bezier(.2,.75,.25,1); }
+    .hero-content > :nth-child(2) { animation-delay: .08s; }
+    .hero-content > :nth-child(3) { animation-delay: .16s; }
+    .hero-content > :nth-child(4) { animation-delay: .24s; }
+    .hero-content > :nth-child(5) { animation-delay: .32s; }
+    .js-reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.75,.25,1); }
+    .js-reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .service-card.js-reveal:nth-child(2), .principle.js-reveal:nth-child(2) { transition-delay: .08s; }
+    .service-card.js-reveal:nth-child(3), .principle.js-reveal:nth-child(3) { transition-delay: .16s; }
+    .service-card.js-reveal:nth-child(4), .principle.js-reveal:nth-child(4) { transition-delay: .24s; }
+    @keyframes hero-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes visual-arrive { from { opacity: 0; transform: translateY(20px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+    @media (max-width: 850px) {
+      .container { width: min(100% - 42px, 700px); }
+      .nav { gap: 19px; }
+      .hero { padding: 75px 0 70px; }
+      .hero-grid { gap: 24px; }
+      .hero-visual { min-height: 350px; }
+      .visual-card { top: 20px; height: 325px; }
+      .floating-card { right: -7px; width: 205px; padding: 13px; }
+      .trust-inner { min-height: 100px; }
+      .trust-items { gap: 10px; }
+      .trust-item { font-size: 12px; }
+      .about-grid { gap: 45px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 40px); }
+      .topbar { height: 70px; }
+      .nav { align-items: stretch; }
+      .theme-toggle { justify-content: flex-start; width: 100%; margin-top: 8px; }
+      .menu-toggle { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; }
+      .menu-toggle svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+      .nav { position: absolute; z-index: 5; top: 69px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 10px 20px 20px; border-bottom: 1px solid var(--line); background: var(--mobile-nav-bg); backdrop-filter: blur(16px); }
+      .nav.is-open { display: flex; flex-direction: column; }
+      .nav a:not(.nav-cta) { padding: 13px 3px; }
+      .nav-cta { margin-top: 8px; }
+      .hero { padding: 62px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 29px; }
+      h1 { max-width: 500px; font-size: clamp(48px, 13vw, 66px); }
+      .hero-copy { font-size: 14px; }
+      .hero-note { margin-top: 25px; }
+      .hero-visual { min-height: 330px; }
+      .visual-card { top: 0; right: 0; width: calc(100% - 13px); height: 300px; }
+      html { scroll-padding-top: 70px; }
+      .floating-card { right: -2px; bottom: 0; width: 212px; }
+      .trust-inner { align-items: flex-start; flex-direction: column; padding: 21px 0; gap: 17px; }
+      .trust-copy { max-width: none; }
+      .trust-items { width: 100%; justify-content: space-between; gap: 8px; }
+      .trust-item { font-size: 11px; }
+      .trust-item span { font-size: 7px; }
+      .section { padding: 74px 0; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 30px; }
+      .section-heading h2, .about-copy h2 { font-size: 42px; }
+      .section-intro { font-size: 12px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; padding: 22px; }
+      .service-icon { margin: 14px 0; }
+      .service-card h3 { font-size: 19px; }
+      .about { padding: 65px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-copy p { font-size: 13px; }
+      .principles { gap: 0 20px; }
+      .contact { padding: 67px 0; }
+      .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
+      .contact h2 { font-size: 46px; }
+      .footer-inner { align-items: flex-start; flex-wrap: wrap; }
+      .footer-note { order: 3; width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *:before, *:after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .js-reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Nexo — início">
+        <span class="brand-mark" aria-hidden="true">n</span>
+        <span class="brand-name">nexo <span>auditoria interna</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#servicos">Serviços</a>
+        <a href="#abordagem">Abordagem</a>
+        <a href="#sobre">Sobre nós</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-label="Tema claro" aria-checked="false">
+          <span class="theme-switch" aria-hidden="true">
+            <svg class="theme-switch-icon" viewBox="0 0 24 24"><path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/></svg>
+            <svg class="theme-switch-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <span class="theme-switch-thumb"><svg id="theme-thumb-icon" viewBox="0 0 24 24"></svg></span>
+          </span>
+          <span id="theme-label">Tema claro</span>
+        </button>
+        <a class="nav-cta" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">Auditoria interna independente</span>
+          <h1>Mais clareza.<br>Melhores <em>decisões.</em></h1>
+          <p class="hero-copy">Ajudamos a sua empresa a identificar riscos, fortalecer processos e crescer com confiança. Uma perspetiva independente, próxima e orientada para a ação.</p>
+          <div class="hero-actions">
+            <a class="button" href="#contacto">Vamos conversar <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#servicos">Conheça os serviços <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-note"><span class="note-dot" aria-hidden="true"></span> Independência, rigor e confiança em cada análise</div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card">
+            <img class="hero-art hero-art-dark" src="assets/hero-auditoria.svg" alt="Ilustração escura de um relatório de auditoria, indicadores de risco e recomendações de controlo" width="900" height="760">
+            <img class="hero-art hero-art-light" src="assets/hero-auditoria-claro.svg" alt="Ilustração clara de um relatório de auditoria, indicadores de risco e recomendações de controlo" width="900" height="760">
+          </div>
+          <div class="floating-card">
+            <span class="floating-icon" aria-hidden="true">↗</span>
+            <span><strong>Valor que se vê</strong><small>Recomendações acionáveis</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust" id="abordagem" aria-label="Setores de atuação">
+      <div class="container trust-inner">
+        <p class="trust-copy">Experiência que acompanha a realidade de cada negócio.</p>
+        <div class="trust-items">
+          <div class="trust-item"><span>Setor</span>Financeiro</div>
+          <div class="trust-item"><span>Setor</span>Indústria</div>
+          <div class="trust-item"><span>Setor</span>Tecnologia</div>
+          <div class="trust-item"><span>Setor</span>Serviços</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">O que fazemos</span>
+            <h2>Controlo que cria<br>oportunidades.</h2>
+          </div>
+          <p class="section-intro">Combinamos conhecimento técnico e visão de negócio para transformar a auditoria interna numa ferramenta de evolução — não apenas de conformidade.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">01 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 11l2 2 4-4"/></svg></span>
+            <h3>Auditoria interna</h3>
+            <p>Avaliação independente de processos e controlos, com conclusões claras e recomendações práticas.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">02 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
+            <h3>Gestão de riscos</h3>
+            <p>Identificação e priorização dos riscos que podem afetar os objetivos e a continuidade do negócio.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">03 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V12m5 7.5V5m5 14.5V9m5 10.5V3"/><path d="M2 20.5h20"/></svg></span>
+            <h3>Controlo interno</h3>
+            <p>Revisão de controlos e fluxos de trabalho para reforçar a fiabilidade e reduzir ineficiências.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">04 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="8.5"/></svg></span>
+            <h3>Conformidade</h3>
+            <p>Apoio na avaliação de políticas e procedimentos face aos requisitos legais e regulamentares aplicáveis.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">05 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18.5 9.5 13l3.5 3.5L20 9.5"/><path d="M14.5 9.5H20V15"/></svg></span>
+            <h3>Melhoria de processos</h3>
+            <p>Análise de oportunidades para simplificar operações, melhorar resultados e apoiar o crescimento.</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">06 /</span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h16"/><path d="m7 15 4-4 3 2 5-6"/><circle cx="19" cy="7" r="1"/></svg></span>
+            <h3>Auditoria de TI</h3>
+            <p>Revisão de controlos tecnológicos, acessos e processos de informação para apoiar operações seguras e fiáveis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <span class="eyebrow">A nossa abordagem</span>
+          <h2>Do diagnóstico à mudança que importa.</h2>
+          <p>Uma auditoria só é útil quando conduz a decisões melhores. Trabalhamos lado a lado com as equipas para compreender o contexto, comunicar sem rodeios e propor melhorias realistas.</p>
+          <a class="about-link" href="#contacto">Descubra como podemos ajudar <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <div class="principle-top"><span class="principle-index">01</span><h3>Independência</h3></div>
+            <p>Análise objetiva e imparcial, centrada no interesse da organização.</p>
+          </article>
+          <article class="principle">
+            <div class="principle-top"><span class="principle-index">02</span><h3>Proximidade</h3></div>
+            <p>Escuta ativa e colaboração para compreender os desafios reais.</p>
+          </article>
+          <article class="principle">
+            <div class="principle-top"><span class="principle-index">03</span><h3>Pragmatismo</h3></div>
+            <p>Recomendações claras, proporcionais e com aplicação prática.</p>
+          </article>
+          <article class="principle">
+            <div class="principle-top"><span class="principle-index">04</span><h3>Confidencialidade</h3></div>
+            <p>Discrição e cuidado no tratamento de cada informação partilhada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-inner">
+        <div>
+          <span class="eyebrow">O próximo passo começa aqui</span>
+          <h2>Uma conversa pode mudar a perspetiva.</h2>
+          <p class="contact-copy">Conte-nos o que a sua empresa procura. Vamos explorar como uma auditoria interna independente pode ajudar.</p>
+        </div>
+        <div class="contact-action">
+          <a class="button button-light" href="mailto:contacto@nexoauditoria.pt?subject=Conversa%20sobre%20auditoria%20interna">Marcar uma conversa <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#inicio" aria-label="Nexo — início"><span class="brand-mark" aria-hidden="true">n</span><span>nexo</span></a>
+      <span class="footer-note">Auditoria interna com visão de futuro.</span>
+      <div class="footer-links"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
+      <span class="footer-note">© <span id="year">2026</span> Nexo Auditoria</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#main-nav");
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeLabel = document.querySelector("#theme-label");
+    const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
+    const updateThemeControl = () => {
+      const isLight = document.documentElement.dataset.theme === "light";
+      const actionLabel = isLight ? "Ativar tema escuro" : "Ativar tema claro";
+      themeLabel.textContent = isLight ? "Tema escuro" : "Tema claro";
+      themeToggle.setAttribute("aria-label", actionLabel);
+      themeToggle.setAttribute("aria-checked", String(isLight));
+      document.querySelector("#theme-thumb-icon").innerHTML = isLight
+        ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
+        : '<path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/>';
+      document.querySelector('meta[name="theme-color"]').content = isLight ? "#f7f7f4" : "#10110f";
+    };
+    updateThemeControl();
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("nexo-theme", nextTheme);
+      updateThemeControl();
+    });
+
+    const closeMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Abrir menu");
+      navigation.classList.remove("is-open");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+      navigation.classList.toggle("is-open", !isOpen);
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navigation.classList.contains("is-open")) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const animatedElements = document.querySelectorAll(
+      ".section-heading, .service-card, .about-copy, .principle, .contact-inner, .trust-inner"
+    );
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      animatedElements.forEach((element) => element.classList.add("js-reveal"));
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+      animatedElements.forEach((element) => revealObserver.observe(element));
+
+      const trackedSections = [...document.querySelectorAll("#servicos, #abordagem, #sobre, #contacto")];
+      const updateActiveLink = () => {
+        const activeSection = [...trackedSections].reverse().find(
+          (section) => section.getBoundingClientRect().top <= window.innerHeight * 0.35
+        );
+        navLinks.forEach((link) => {
+          if (activeSection && link.getAttribute("href") === `#${activeSection.id}`) {
+            link.setAttribute("aria-current", "location");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+      let scrollUpdatePending = false;
+      window.addEventListener("scroll", () => {
+        if (!scrollUpdatePending) {
+          scrollUpdatePending = true;
+          window.requestAnimationFrame(() => {
+            updateActiveLink();
+            scrollUpdatePending = false;
+          });
+        }
+      }, { passive: true });
+      updateActiveLink();
+    } else {
+      animatedElements.forEach((element) => element.classList.add("is-visible"));
+    }
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
