@@ -271,16 +271,14 @@
     }
     .section-intro { max-width: 345px; margin-bottom: 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .service-card { position: relative; min-height: 257px; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); color: var(--service-card-heading); transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; }
+    .service-card { position: relative; display: flex; min-height: 360px; flex-direction: column; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); color: var(--service-card-heading); transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; }
     .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px var(--hover-shadow); transform: translateY(-4px); }
-    .service-number { color: var(--service-card-number); font-family: var(--serif); font-size: 13px; }
-    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--service-card-icon-color); transition: background-color .25s, color .25s, transform .25s; }
-    .service-card:hover .service-icon { background: var(--service-card-icon-hover-bg); transform: scale(1.06); }
-    .service-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
-    .service-card h3 { margin-bottom: 9px; color: var(--service-card-heading); font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
-    .service-card p { max-width: 280px; margin-bottom: 0; color: var(--service-card-copy); font-size: 12px; line-height: 1.7; }
-    .service-card .service-detail, .service-card .service-delivery { margin-top: 10px; }
-    .service-card .service-delivery strong { color: var(--service-card-heading); font-weight: 650; }
+    .service-number { color: var(--service-card-copy); font-size: 14px; }
+    .service-card h3 { margin: 24px 0 15px; color: var(--service-card-heading); font-family: var(--sans); font-size: 30px; font-weight: 700; letter-spacing: -.04em; }
+    .service-card > p { max-width: 360px; margin: 0; color: var(--service-card-copy); font-size: 16px; line-height: 1.5; }
+    .service-delivery { margin-top: auto; padding-top: 27px; }
+    .service-delivery-label { margin-bottom: 12px !important; padding-top: 26px; border-top: 1px solid var(--line); color: var(--service-card-heading) !important; font-weight: 500; }
+    .service-delivery p:last-child { max-width: 360px; margin: 0; color: var(--service-card-copy); font-size: 16px; line-height: 1.5; }
     .service-areas { margin-top: 38px; }
     .service-areas h3 { margin: 0 0 16px; color: var(--muted); font-size: 11px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
     .service-areas-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
@@ -395,9 +393,12 @@
       .section-heading h2, .about-copy h2 { font-size: 42px; }
       .section-intro { font-size: 12px; }
       .services-grid { grid-template-columns: 1fr; }
-      .service-card { min-height: 0; padding: 22px; }
-      .service-icon { margin: 14px 0; }
-      .service-card h3 { font-size: 19px; }
+      .service-card { min-height: 0; padding: 24px 22px; }
+      .service-card h3 { margin: 20px 0 12px; font-size: 27px; }
+      .service-card > p { font-size: 15px; }
+      .service-delivery { margin-top: 25px; padding-top: 0; }
+      .service-delivery-label { padding-top: 20px; }
+      .service-delivery p:last-child { font-size: 15px; }
       .service-areas { margin-top: 30px; }
       .service-areas-list { grid-template-columns: 1fr; gap: 9px; }
       .service-areas-list li { min-height: 64px; padding: 15px 16px; font-size: 14px; }
@@ -500,34 +501,37 @@
         <div class="section-heading">
           <div>
             <span class="eyebrow">O que fazemos</span>
-            <h2>Controlo que cria<br>oportunidades.</h2>
+            <h2>Soluções que acompanham a evolução da sua organização.</h2>
           </div>
-          <p class="section-intro">Combinamos conhecimento técnico e visão de negócio para transformar a auditoria interna numa ferramenta de evolução — não apenas de conformidade.</p>
+          <p class="section-intro">Da identificação de riscos à melhoria dos processos e monitorização do desempenho, oferecemos soluções adaptadas às necessidades e aos objetivos de cada organização.</p>
         </div>
         <div class="services-grid">
           <article class="service-card">
             <span class="service-number">01 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 11l2 2 4-4"/></svg></span>
-            <h3>Analisar</h3>
-            <p>Diagnóstico e avaliação inicial.</p>
-            <p class="service-detail">Identificação de riscos, fragilidades, oportunidades de melhoria e prioridades de intervenção.</p>
-            <p class="service-delivery"><strong>Entrega:</strong> relatório de diagnóstico e recomendações.</p>
+            <h3>Diagnosticar</h3>
+            <p>Identificamos riscos, avaliamos processos e definimos prioridades de melhoria.</p>
+            <div class="service-delivery">
+              <p class="service-delivery-label">O que recebe</p>
+              <p>Relatório de diagnóstico, matriz de riscos e plano inicial de ações.</p>
+            </div>
           </article>
           <article class="service-card">
             <span class="service-number">02 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
-            <h3>Melhorar</h3>
-            <p>Consultoria para organização e melhoria de processos.</p>
-            <p class="service-detail">Apoio na definição de procedimentos, implementação de medidas corretivas e preparação para avaliações ou auditorias.</p>
-            <p class="service-delivery"><strong>Entrega:</strong> plano de melhoria, documentação acordada e apoio à implementação.</p>
+            <h3>Controlar</h3>
+            <p>Apoiamos a organização de processos, procedimentos e mecanismos de controlo.</p>
+            <div class="service-delivery">
+              <p class="service-delivery-label">O que recebe</p>
+              <p>Plano de melhoria, documentação e instrumentos de controlo.</p>
+            </div>
           </article>
           <article class="service-card">
             <span class="service-number">03 /</span>
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V12m5 7.5V5m5 14.5V9m5 10.5V3"/><path d="M2 20.5h20"/></svg></span>
             <h3>Evoluir</h3>
-            <p>Acompanhamento periódico e melhoria contínua.</p>
-            <p class="service-detail">Monitorização de indicadores, acompanhamento das ações implementadas e revisão dos processos.</p>
-            <p class="service-delivery"><strong>Entrega:</strong> avaliações periódicas e relatórios de acompanhamento.</p>
+            <p>Acompanhamos indicadores, analisamos desvios e apoiamos decisões de gestão.</p>
+            <div class="service-delivery">
+              <p class="service-delivery-label">O que recebe</p>
+              <p>Dashboard, relatórios periódicos e acompanhamento.</p>
+            </div>
           </article>
         </div>
         <div class="service-areas js-reveal">
