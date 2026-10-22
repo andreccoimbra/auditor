@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10110f">
+  <meta name="theme-color" content="#091b2b">
   <meta name="description" content="Auditoria interna independente para empresas que querem crescer com confiança. Avaliação de riscos, processos e controlos internos.">
   <title>audita.mos — Auditoria interna com visão de futuro</title>
   <script>
@@ -13,80 +13,88 @@
   <style>
     :root {
       color-scheme: dark;
-      --paper: #10110f;
-      --white: #1b1d19;
-      --surface: #191a16;
-      --section-surface: #181915;
-      --ink: #f3f1e8;
-      --muted: #a7a79d;
-      --green: #f2c94c;
-      --green-dark: #d9ad31;
-      --lime: #ffd966;
-      --line: #30312b;
-      --header-bg: rgba(16, 17, 15, .88);
+      --paper: #091b2b;
+      --white: #142a3e;
+      --surface: #11263a;
+      --section-surface: #0d2236;
+      --ink: #f3eee4;
+      --muted: #b2bdc8;
+      --accent: #d6aa67;
+      --accent-hover: #bd8d4c;
+      --accent-strong: #edc991;
+      --line: #294057;
+      --header-bg: rgba(9, 27, 43, .9);
       --header-line: rgba(255, 255, 255, .08);
-      --mobile-nav-bg: rgba(16, 17, 15, .97);
-      --logo-bg: #28261b;
-      --button-ink: #17150e;
-      --trust-ink: #deddd3;
-      --trust-muted: #87877d;
-      --service-card-bg: #1d1f1b;
-      --service-card-hover: #272822;
-      --service-icon-bg: #272822;
-      --principle-line: #34352e;
-      --footer-bg: #0b0c0a;
-      --footer-ink: #d6d4c9;
-      --footer-muted: #9e9d93;
-      --accent-wash: rgba(242, 201, 76, .12);
-      --accent-soft: rgba(242, 201, 76, .1);
+      --mobile-nav-bg: rgba(9, 27, 43, .98);
+      --logo-bg: #17324b;
+      --button-ink: #142538;
+      --trust-ink: #e4e9ed;
+      --trust-muted: #98a8b7;
+      --service-card-bg: #142c42;
+      --service-card-hover: #1b3852;
+      --service-icon-bg: #1b3852;
+      --principle-line: #2c4358;
+      --footer-bg: #061522;
+      --footer-ink: #e4e9ed;
+      --footer-muted: #a4b1bd;
+      --accent-wash: rgba(214, 170, 103, .15);
+      --accent-soft: rgba(214, 170, 103, .1);
+      --hero-frame: #0b1e30;
+      --card-shadow: rgba(4, 15, 25, .36);
+      --hover-shadow: rgba(4, 15, 25, .24);
+      --button-shadow: rgba(214, 170, 103, .18);
       --serif: Georgia, "Times New Roman", serif;
       --sans: "Segoe UI", Arial, sans-serif;
     }
 
     :root[data-theme="light"] {
       color-scheme: light;
-      --paper: #f7f7f4;
-      --white: #fff;
-      --surface: #fff;
-      --section-surface: #eeeee7;
-      --ink: #172a25;
-      --muted: #68736e;
-      --green: #d7ad37;
-      --green-dark: #bf941e;
-      --lime: #8c690f;
-      --line: #e1e2db;
-      --header-bg: rgba(247, 247, 244, .9);
-      --header-line: rgba(23, 42, 37, .1);
-      --mobile-nav-bg: rgba(247, 247, 244, .98);
-      --logo-bg: #eee8d5;
-      --button-ink: #231c0b;
-      --trust-ink: #48564f;
-      --trust-muted: #778078;
-      --service-card-bg: #eae9e2;
-      --service-card-hover: #e1dfd5;
-      --service-icon-bg: #dfddd2;
-      --principle-line: #d5d8ce;
-      --footer-bg: #e9e7dc;
-      --footer-ink: #26342d;
-      --footer-muted: #667168;
-      --accent-wash: rgba(190, 146, 30, .12);
-      --accent-soft: rgba(190, 146, 30, .09);
+      --paper: #f7f3eb;
+      --white: #fffdf8;
+      --surface: #fffdf8;
+      --section-surface: #eee8dc;
+      --ink: #142b40;
+      --muted: #687887;
+      --accent: #b9873e;
+      --accent-hover: #a57530;
+      --accent-strong: #875f26;
+      --line: #ded7ca;
+      --header-bg: rgba(247, 243, 235, .94);
+      --header-line: rgba(20, 43, 64, .12);
+      --mobile-nav-bg: rgba(247, 243, 235, .98);
+      --logo-bg: #eee6d7;
+      --button-ink: #14283b;
+      --trust-ink: #405568;
+      --trust-muted: #798693;
+      --service-card-bg: #eae5da;
+      --service-card-hover: #dfd7c9;
+      --service-icon-bg: #ded7ca;
+      --principle-line: #d6cdbd;
+      --footer-bg: #10283d;
+      --footer-ink: #f3eee4;
+      --footer-muted: #c0c9d0;
+      --accent-wash: rgba(185, 135, 62, .15);
+      --accent-soft: rgba(185, 135, 62, .1);
+      --hero-frame: #f2efe7;
+      --card-shadow: rgba(30, 40, 48, .14);
+      --hover-shadow: rgba(30, 40, 48, .12);
+      --button-shadow: rgba(150, 105, 38, .2);
     }
 
     :root[data-theme="light"] .nav-cta,
-    :root[data-theme="light"] .button { color: #231c0b; }
+    :root[data-theme="light"] .button { color: var(--button-ink); }
     :root[data-theme="light"] .eyebrow,
-    :root[data-theme="light"] h1 em { color: #80600c; }
+    :root[data-theme="light"] h1 em { color: var(--accent-strong); }
     :root[data-theme="light"] .nav a:not(.nav-cta):hover,
     :root[data-theme="light"] .nav a[aria-current="location"],
-    :root[data-theme="light"] .nav a:not(.nav-cta):after { color: #80600c; }
-    :root[data-theme="light"] .nav a:not(.nav-cta):after { background: #a27d1b; }
+    :root[data-theme="light"] .nav a:not(.nav-cta):after { color: var(--accent-strong); }
+    :root[data-theme="light"] .nav a:not(.nav-cta):after { background: var(--accent); }
     :root[data-theme="light"] .nav-cta:hover,
-    :root[data-theme="light"] .button:hover { border-color: #ae8518; background: #ae8518; }
-    :root[data-theme="light"] .button-light { border-color: rgba(142, 105, 15, .55); color: #765709; }
-    :root[data-theme="light"] .button-light:hover { border-color: #80600c; background: rgba(190, 146, 30, .09); }
-    :root[data-theme="light"] .theme-switch { background: #d8d5ca; }
-    :root[data-theme="light"] .theme-switch-thumb { transform: translateX(20px); background: #fff; color: #80600c; }
+    :root[data-theme="light"] .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); }
+    :root[data-theme="light"] .button-light { border-color: var(--accent); color: var(--accent-strong); }
+    :root[data-theme="light"] .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
+    :root[data-theme="light"] .theme-switch { background: #ded7ca; }
+    :root[data-theme="light"] .theme-switch-thumb { transform: translateX(20px); background: var(--white); color: var(--accent-strong); }
     :root[data-theme="light"] .hero-art-dark { display: none; }
     :root[data-theme="light"] .hero-art-light { display: block; }
 
@@ -125,7 +133,7 @@
       place-items: center;
       border-radius: 50%;
       background: var(--logo-bg);
-      color: var(--lime);
+      color: var(--accent-strong);
       font-family: var(--serif);
       font-size: 22px;
       font-weight: 400;
@@ -135,8 +143,8 @@
     .header-actions { display: flex; align-items: center; gap: 14px; }
     .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
     .nav a:not(.nav-cta) { position: relative; transition: color .25s; }
-    .nav a:not(.nav-cta):after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--lime); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-    .nav a:not(.nav-cta):hover, .nav a[aria-current="location"] { color: var(--lime); }
+    .nav a:not(.nav-cta):after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--accent-strong); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav a:not(.nav-cta):hover, .nav a[aria-current="location"] { color: var(--accent-strong); }
     .nav a:not(.nav-cta):hover:after, .nav a[aria-current="location"]:after { transform: scaleX(1); }
     .theme-toggle {
       display: inline-flex;
@@ -153,12 +161,12 @@
       cursor: pointer;
       transition: color .2s;
     }
-    .theme-toggle:hover { color: var(--lime); }
-    .theme-switch { position: relative; display: inline-flex; width: 43px; height: 24px; flex: 0 0 43px; align-items: center; justify-content: space-between; padding: 0 5px; border: 1px solid var(--line); border-radius: 999px; background: #292a25; transition: background-color .25s, border-color .25s; }
+    .theme-toggle:hover { color: var(--accent-strong); }
+    .theme-switch { position: relative; display: inline-flex; width: 43px; height: 24px; flex: 0 0 43px; align-items: center; justify-content: space-between; padding: 0 5px; border: 1px solid var(--line); border-radius: 999px; background: var(--service-icon-bg); transition: background-color .25s, border-color .25s; }
     .theme-switch-icon { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
-    .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--lime); color: #28200c; transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
+    .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--accent-strong); color: var(--button-ink); transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
     .theme-switch-thumb svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
     .nav-cta, .button {
       display: inline-flex;
       align-items: center;
@@ -166,18 +174,18 @@
       gap: 10px;
       min-height: 46px;
       padding: 0 19px;
-      border: 1px solid var(--green);
+      border: 1px solid var(--accent);
       border-radius: 3px;
-      background: var(--green);
+      background: var(--accent);
       color: var(--button-ink);
       font-size: 13px;
       font-weight: 600;
       transition: background .2s, border-color .2s, transform .2s;
     }
     .nav-cta-mobile { display: none; }
-    .nav-cta:hover, .button:hover { border-color: var(--green-dark); background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,201,76,.16); }
-    .button-light { border-color: rgba(242,201,76,.55); background: transparent; color: var(--lime); }
-    .button-light:hover { border-color: var(--lime); background: var(--accent-soft); }
+    .nav-cta:hover, .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--button-shadow); }
+    .button-light { border-color: var(--accent); background: transparent; color: var(--accent-strong); }
+    .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
     .arrow { font-size: 17px; line-height: 1; }
     .menu-toggle { display: none; border: 0; background: none; color: var(--ink); cursor: pointer; }
 
@@ -200,13 +208,13 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: var(--lime);
+      color: var(--accent-strong);
       font-size: 10px;
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
     }
-    .eyebrow:before { width: 24px; height: 1px; background: var(--green-dark); content: ""; }
+    .eyebrow:before { width: 24px; height: 1px; background: var(--accent); content: ""; }
     h1, h2, h3, p { margin-top: 0; }
     h1 {
       max-width: 590px;
@@ -217,28 +225,29 @@
       letter-spacing: -.065em;
       line-height: .99;
     }
-    h1 em { color: var(--lime); font-weight: 400; }
+    h1 em { color: var(--accent-strong); font-weight: 400; }
     .hero-copy { max-width: 465px; color: var(--muted); font-size: 16px; line-height: 1.8; }
     .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 30px; }
     .text-link { display: inline-flex; align-items: center; gap: 9px; padding: 12px 7px; font-size: 13px; font-weight: 600; }
-    .text-link span { color: var(--lime); font-size: 18px; }
+    .text-link span { color: var(--accent-strong); font-size: 18px; }
     .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 37px; color: var(--muted); font-size: 11px; }
-    .note-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 4px var(--accent-wash); }
+    .note-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-strong); box-shadow: 0 0 0 4px var(--accent-wash); }
 
-    .hero-visual { position: relative; min-height: 420px; }
+    .hero-visual { position: relative; min-height: 350px; }
     .visual-card {
       position: absolute;
       top: 28px;
       right: 8px;
-      width: min(100%, 440px);
-      height: 374px;
+      width: min(100%, 470px);
+      height: auto;
+      aspect-ratio: 1250 / 644;
       overflow: hidden;
       border-radius: 4px;
-      background: var(--surface);
+      background: var(--hero-frame);
       color: var(--ink);
     }
-    .visual-card { box-shadow: 0 28px 80px rgba(0,0,0,.35); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
-    .hero-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .visual-card { box-shadow: 0 28px 80px var(--card-shadow); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
+    .hero-art { display: block; width: 100%; height: 100%; object-fit: contain; }
     .hero-art-light { display: none; }
     .floating-card {
       position: absolute;
@@ -252,9 +261,9 @@
       border: 1px solid var(--line);
       border-radius: 3px;
       background: var(--white);
-      box-shadow: 0 12px 36px rgba(0,0,0,.24);
+      box-shadow: 0 12px 36px var(--card-shadow);
     }
-    .floating-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; background: var(--accent-wash); color: var(--lime); font-size: 17px; }
+    .floating-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; background: var(--accent-wash); color: var(--accent-strong); font-size: 17px; }
     .floating-card strong { display: block; margin-bottom: 4px; font-size: 12px; }
     .floating-card small { color: var(--muted); font-size: 10px; }
 
@@ -279,29 +288,31 @@
     .section-intro { max-width: 345px; margin-bottom: 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .service-card { position: relative; min-height: 257px; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease; }
-    .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px rgba(0,0,0,.16); transform: translateY(-4px); }
-    .service-number { color: var(--lime); font-family: var(--serif); font-size: 13px; }
-    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--lime); transition: background-color .25s, color .25s, transform .25s; }
+    .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px var(--hover-shadow); transform: translateY(-4px); }
+    .service-number { color: var(--accent-strong); font-family: var(--serif); font-size: 13px; }
+    .service-icon { display: grid; width: 38px; height: 38px; margin: 21px 0 19px; place-items: center; border: 0; border-radius: 50%; background: var(--service-icon-bg); color: var(--accent-strong); transition: background-color .25s, color .25s, transform .25s; }
     .service-card:hover .service-icon { background: var(--accent-wash); transform: scale(1.06); }
     .service-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
     .service-card h3 { margin-bottom: 9px; font-family: var(--serif); font-size: 20px; font-weight: 400; letter-spacing: -.025em; }
     .service-card p { max-width: 280px; margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .service-card .service-detail, .service-card .service-delivery { margin-top: 10px; }
+    .service-card .service-delivery strong { color: var(--ink); font-weight: 650; }
 
     .about { padding: 86px 0; background: var(--section-surface); transition: background-color .3s ease; }
     .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 95px; align-items: start; }
     .about-copy p { max-width: 435px; margin: 22px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
-    .about-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; color: var(--lime); font-size: 12px; font-weight: 700; }
+    .about-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; color: var(--accent-strong); font-size: 12px; font-weight: 700; }
     .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
     .principle { padding: 21px 0; border-top: 1px solid var(--principle-line); }
     .principle-top { display: flex; align-items: center; gap: 11px; margin-bottom: 8px; }
-    .principle-index { color: var(--lime); font-family: var(--serif); font-size: 12px; }
+    .principle-index { color: var(--accent-strong); font-family: var(--serif); font-size: 12px; }
     .principle h3 { margin: 0; font-size: 13px; font-weight: 650; }
     .principle p { margin: 0 0 0 29px; color: var(--muted); font-size: 11px; line-height: 1.7; }
 
     .contact { position: relative; overflow: hidden; margin-top: clamp(32px, 5vw, 64px); padding: 83px 0; background: var(--section-surface); color: var(--ink); transition: background-color .3s ease; }
     .contact:after { position: absolute; top: -225px; right: -110px; width: 560px; height: 560px; border: 1px solid var(--accent-wash); border-radius: 50%; content: ""; box-shadow: 0 0 0 55px var(--section-surface), 0 0 0 56px var(--accent-soft), 0 0 0 116px var(--section-surface), 0 0 0 117px var(--accent-wash); }
     .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 35px; }
-    .contact .eyebrow { color: var(--lime); }
+    .contact .eyebrow { color: var(--accent-strong); }
     .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
     .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
     .contact-action { flex: 0 0 auto; padding-bottom: 5px; }
@@ -309,10 +320,10 @@
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .footer-brand { color: var(--ink); font-size: 15px; }
-    .footer-brand .brand-mark { width: 27px; height: 27px; background: var(--accent-wash); color: var(--lime); font-size: 17px; }
+    .footer-brand .brand-mark { width: 27px; height: 27px; background: var(--accent-wash); color: var(--accent-strong); font-size: 17px; }
     .footer-note, .footer-links { color: var(--footer-muted); font-size: 10px; }
     .footer-links { display: flex; gap: 21px; }
-    .footer-links a:hover { color: var(--lime); }
+    .footer-links a:hover { color: var(--accent-strong); }
 
     .hero-content > * { animation: hero-enter .65s both cubic-bezier(.2,.75,.25,1); }
     .hero-content > :nth-child(2) { animation-delay: .08s; }
@@ -333,7 +344,7 @@
       .hero { padding: 75px 0 70px; }
       .hero-grid { gap: 24px; }
       .hero-visual { min-height: 350px; }
-      .visual-card { top: 20px; height: 325px; }
+      .visual-card { top: 20px; }
       .floating-card { right: -7px; width: 205px; padding: 13px; }
       .trust-inner { min-height: 100px; }
       .trust-items { gap: 10px; }
@@ -358,8 +369,8 @@
       h1 { max-width: 500px; font-size: clamp(48px, 13vw, 66px); }
       .hero-copy { font-size: 14px; }
       .hero-note { margin-top: 25px; }
-      .hero-visual { min-height: 330px; }
-      .visual-card { top: 0; right: 0; width: calc(100% - 13px); height: 300px; }
+      .hero-visual { min-height: 250px; }
+      .visual-card { top: 0; right: 0; width: calc(100% - 13px); }
       html { scroll-padding-top: 70px; }
       .floating-card { right: -2px; bottom: 0; width: 212px; }
       .trust-inner { align-items: flex-start; flex-direction: column; padding: 21px 0; gap: 17px; }
@@ -435,8 +446,8 @@
         </div>
         <div class="hero-visual">
           <div class="visual-card">
-            <img class="hero-art hero-art-dark" src="assets/hero-auditoria.svg" alt="Ilustração escura de um relatório de auditoria, indicadores de risco e recomendações de controlo" width="900" height="760">
-            <img class="hero-art hero-art-light" src="assets/hero-auditoria-claro.svg" alt="Ilustração clara de um relatório de auditoria, indicadores de risco e recomendações de controlo" width="900" height="760">
+            <img class="hero-art hero-art-dark" src="assets/hero-ar-cc-escuro.svg" alt="Identidade AR/CC em azul-marinho e dourado, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
+            <img class="hero-art hero-art-light" src="assets/hero-ar-cc-claro.svg" alt="Identidade AR/CC em fundo marfim e azul-marinho, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
           </div>
           <div class="floating-card">
             <span class="floating-icon" aria-hidden="true">↗</span>
@@ -471,20 +482,26 @@
           <article class="service-card">
             <span class="service-number">01 /</span>
             <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 11l2 2 4-4"/></svg></span>
-            <h3>Auditoria interna</h3>
-            <p>Avaliação independente de processos e controlos, com conclusões claras e recomendações práticas.</p>
+            <h3>Analisar</h3>
+            <p>Diagnóstico e avaliação inicial.</p>
+            <p class="service-detail">Identificação de riscos, fragilidades, oportunidades de melhoria e prioridades de intervenção.</p>
+            <p class="service-delivery"><strong>Entrega:</strong> relatório de diagnóstico e recomendações.</p>
           </article>
           <article class="service-card">
             <span class="service-number">02 /</span>
             <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg></span>
-            <h3>Gestão de riscos</h3>
-            <p>Identificação e priorização dos riscos que podem afetar os objetivos e a continuidade do negócio.</p>
+            <h3>Melhorar</h3>
+            <p>Consultoria para organização e melhoria de processos.</p>
+            <p class="service-detail">Apoio na definição de procedimentos, implementação de medidas corretivas e preparação para avaliações ou auditorias.</p>
+            <p class="service-delivery"><strong>Entrega:</strong> plano de melhoria, documentação acordada e apoio à implementação.</p>
           </article>
           <article class="service-card">
             <span class="service-number">03 /</span>
             <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V12m5 7.5V5m5 14.5V9m5 10.5V3"/><path d="M2 20.5h20"/></svg></span>
-            <h3>Controlo interno</h3>
-            <p>Revisão de controlos e fluxos de trabalho para reforçar a fiabilidade e reduzir ineficiências.</p>
+            <h3>Evoluir</h3>
+            <p>Acompanhamento periódico e melhoria contínua.</p>
+            <p class="service-detail">Monitorização de indicadores, acompanhamento das ações implementadas e revisão dos processos.</p>
+            <p class="service-delivery"><strong>Entrega:</strong> avaliações periódicas e relatórios de acompanhamento.</p>
           </article>
           <article class="service-card">
             <span class="service-number">04 /</span>
@@ -573,7 +590,7 @@
       document.querySelector("#theme-thumb-icon").innerHTML = isLight
         ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
         : '<path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/>';
-      document.querySelector('meta[name="theme-color"]').content = isLight ? "#f7f7f4" : "#10110f";
+      document.querySelector('meta[name="theme-color"]').content = isLight ? "#f7f3eb" : "#091b2b";
     };
     updateThemeControl();
     themeToggle.addEventListener("click", () => {
