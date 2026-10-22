@@ -349,7 +349,7 @@
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .footer-brand { align-items: flex-start; flex-direction: column; gap: 4px; color: var(--accent-strong); }
-    .footer-brand-name { font-family: var(--serif); font-size: 36px; font-weight: 700; letter-spacing: -.08em; line-height: 1; }
+    .footer-brand .brand-logo { width: 105px; }
     .footer-tagline { font-family: var(--serif); font-size: 17px; font-style: italic; font-weight: 600; }
     .footer-meta { display: flex; align-items: flex-end; flex-direction: column; gap: 10px; color: var(--footer-muted); font-size: 10px; }
     .footer-links { display: flex; gap: 6px; }
@@ -455,7 +455,7 @@
       .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
       .contact h2 { font-size: 46px; }
       .footer-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
-      .footer-brand-name { font-size: 32px; }
+      .footer-brand .brand-logo { width: 96px; }
       .footer-tagline { font-size: 16px; }
       .footer-meta { align-items: flex-start; }
     }
@@ -727,7 +727,8 @@
   <footer>
     <div class="container footer-inner">
       <a class="brand footer-brand" href="#inicio" aria-label="AR/CC — início">
-        <span class="footer-brand-name">AR/CC</span>
+        <img class="brand-logo brand-logo-dark" src="assets/logo-ar-cc.svg" alt="">
+        <img class="brand-logo brand-logo-light" src="assets/logo-ar-cc-claro.svg" alt="">
         <span class="footer-tagline">Analisar. Melhorar. Evoluir.</span>
       </a>
       <div class="footer-meta">
