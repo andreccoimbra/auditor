@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10110f">
   <meta name="description" content="Auditoria interna independente para empresas que querem crescer com confiança. Avaliação de riscos, processos e controlos internos.">
-  <title>Nexo — Auditoria interna com visão de futuro</title>
+  <title>audita.mos — Auditoria interna com visão de futuro</title>
   <script>
     const savedTheme = localStorage.getItem("nexo-theme");
     document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
@@ -132,6 +132,7 @@
     }
     .brand span:last-child { color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: .03em; }
     .brand-name { display: flex; align-items: baseline; gap: 8px; }
+    .header-actions { display: flex; align-items: center; gap: 14px; }
     .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
     .nav a:not(.nav-cta) { position: relative; transition: color .25s; }
     .nav a:not(.nav-cta):after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--lime); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
@@ -173,6 +174,7 @@
       font-weight: 600;
       transition: background .2s, border-color .2s, transform .2s;
     }
+    .nav-cta-mobile { display: none; }
     .nav-cta:hover, .button:hover { border-color: var(--green-dark); background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,201,76,.16); }
     .button-light { border-color: rgba(242,201,76,.55); background: transparent; color: var(--lime); }
     .button-light:hover { border-color: var(--lime); background: var(--accent-soft); }
@@ -341,8 +343,10 @@
     @media (max-width: 640px) {
       .container { width: calc(100% - 40px); }
       .topbar { height: 70px; }
-      .nav { align-items: stretch; }
-      .theme-toggle { justify-content: flex-start; width: 100%; margin-top: 8px; }
+      .header-actions { gap: 8px; }
+      .theme-toggle { width: 42px; height: 42px; min-height: 42px; padding: 0; }
+      .nav-cta-desktop { display: none; }
+      .nav-cta-mobile { display: inline-flex; }
       .menu-toggle { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; }
       .menu-toggle svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; }
       .nav { position: absolute; z-index: 5; top: 69px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 10px 20px 20px; border-bottom: 1px solid var(--line); background: var(--mobile-nav-bg); backdrop-filter: blur(16px); }
@@ -390,27 +394,29 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#inicio" aria-label="Nexo — início">
-        <span class="brand-mark" aria-hidden="true">n</span>
-        <span class="brand-name">nexo <span>auditoria interna</span></span>
+      <a class="brand" href="#inicio" aria-label="audita.mos — início">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span class="brand-name">audita.mos <span>auditoria interna</span></span>
       </a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
       <nav class="nav" id="main-nav" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
         <a href="#abordagem">Abordagem</a>
         <a href="#sobre">Sobre nós</a>
+        <a class="nav-cta nav-cta-mobile" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="header-actions">
         <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-label="Tema claro" aria-checked="false">
           <span class="theme-switch" aria-hidden="true">
             <svg class="theme-switch-icon" viewBox="0 0 24 24"><path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/></svg>
             <svg class="theme-switch-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
             <span class="theme-switch-thumb"><svg id="theme-thumb-icon" viewBox="0 0 24 24"></svg></span>
           </span>
-          <span id="theme-label">Tema claro</span>
         </button>
-        <a class="nav-cta" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
-      </nav>
+        <a class="nav-cta nav-cta-desktop" href="#contacto">Fale connosco <span class="arrow" aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -539,7 +545,7 @@
           <p class="contact-copy">Conte-nos o que a sua empresa procura. Vamos explorar como uma auditoria interna independente pode ajudar.</p>
         </div>
         <div class="contact-action">
-          <a class="button button-light" href="mailto:contacto@nexoauditoria.pt?subject=Conversa%20sobre%20auditoria%20interna">Marcar uma conversa <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="button button-light" href="mailto:contacto@audita.mos?subject=Conversa%20sobre%20auditoria%20interna">Marcar uma conversa <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -547,10 +553,10 @@
 
   <footer>
     <div class="container footer-inner">
-      <a class="brand footer-brand" href="#inicio" aria-label="Nexo — início"><span class="brand-mark" aria-hidden="true">n</span><span>nexo</span></a>
+      <a class="brand footer-brand" href="#inicio" aria-label="audita.mos — início"><span class="brand-mark" aria-hidden="true">a</span><span>audita.mos</span></a>
       <span class="footer-note">Auditoria interna com visão de futuro.</span>
       <div class="footer-links"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
-      <span class="footer-note">© <span id="year">2026</span> Nexo Auditoria</span>
+      <span class="footer-note">© <span id="year">2026</span> audita.mos</span>
     </div>
   </footer>
 
@@ -558,12 +564,10 @@
     const menuToggle = document.querySelector(".menu-toggle");
     const navigation = document.querySelector("#main-nav");
     const themeToggle = document.querySelector("#theme-toggle");
-    const themeLabel = document.querySelector("#theme-label");
     const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
     const updateThemeControl = () => {
       const isLight = document.documentElement.dataset.theme === "light";
       const actionLabel = isLight ? "Ativar tema escuro" : "Ativar tema claro";
-      themeLabel.textContent = isLight ? "Tema escuro" : "Tema claro";
       themeToggle.setAttribute("aria-label", actionLabel);
       themeToggle.setAttribute("aria-checked", String(isLight));
       document.querySelector("#theme-thumb-icon").innerHTML = isLight
