@@ -76,7 +76,7 @@
       --service-icon-bg: #ded7ca;
       --service-card-heading: #142b40;
       --service-card-copy: #687887;
-      --service-card-number: #875f26;
+      --service-card-number: #142b40;
       --service-card-icon-color: #875f26;
       --service-card-icon-hover-bg: rgba(185, 135, 62, .15);
       --principle-line: #d6cdbd;
@@ -255,7 +255,7 @@
     .trust-inner { display: flex; min-height: 92px; align-items: center; justify-content: space-between; gap: 28px; }
     .trust-copy { max-width: 185px; color: var(--muted); font-size: 11px; line-height: 1.55; }
     .trust-items { display: flex; flex: 1; align-items: center; justify-content: space-around; gap: 20px; }
-    .trust-item { color: var(--trust-ink); font-family: var(--serif); font-size: 15px; letter-spacing: -.03em; }
+    .trust-item { color: var(--trust-ink); font-family: var(--serif); font-size: 15px; letter-spacing: -.03em; text-align: center; }
     .trust-item span { display: block; margin-bottom: 3px; color: var(--trust-muted); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: .11em; text-align: center; text-transform: uppercase; }
 
     .section { padding: 108px 0; }
@@ -273,11 +273,11 @@
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .service-card { position: relative; display: flex; min-height: 360px; flex-direction: column; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: var(--service-card-bg); color: var(--service-card-heading); transition: background-color .25s ease, color .25s ease, box-shadow .25s ease, transform .25s ease; }
     .service-card:hover, .service-card.js-reveal.is-visible:hover { z-index: 1; background: var(--service-card-hover); box-shadow: 0 14px 30px var(--hover-shadow); transform: translateY(-4px); }
-    .service-number { color: var(--service-card-copy); font-size: 14px; }
+    .service-number { color: var(--service-card-number); font-size: 14px; }
     .service-card h3 { margin: 24px 0 15px; color: var(--service-card-heading); font-family: var(--sans); font-size: 30px; font-weight: 700; letter-spacing: -.04em; }
     .service-card > p { max-width: 360px; margin: 0; color: var(--service-card-copy); font-size: 16px; line-height: 1.5; }
     .service-delivery { margin-top: auto; padding-top: 27px; }
-    .service-delivery-label { margin-bottom: 12px !important; padding-top: 26px; border-top: 1px solid var(--line); color: var(--service-card-heading) !important; font-weight: 500; }
+    .service-delivery-label { margin-bottom: 12px !important; padding-top: 26px; border-top: 1px solid var(--service-card-number); color: var(--service-card-heading) !important; font-weight: 500; }
     .service-delivery p:last-child { max-width: 360px; margin: 0; color: var(--service-card-copy); font-size: 16px; line-height: 1.5; }
     .service-areas { margin-top: 38px; }
     .service-areas h3 { margin: 0 0 16px; color: var(--muted); font-size: 11px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
@@ -319,6 +319,25 @@
     .methodology-cta p { max-width: 440px; margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .methodology-cta .button { flex: 0 0 auto; }
 
+    .about-page { padding: 86px 0 104px; animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
+    .about-page-heading { max-width: 980px; margin-bottom: 38px; }
+    .about-page-heading h1 { max-width: 920px; margin: 18px 0 20px; font-family: var(--sans); font-size: clamp(39px, 5.3vw, 62px); font-weight: 700; letter-spacing: -.045em; line-height: 1.14; }
+    .about-page-heading p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+    .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 38px; }
+    .founder-card { padding: 27px 25px 30px; border: 1px solid var(--line); background: var(--surface); }
+    .founder-card .eyebrow { display: block; margin-bottom: 11px; font-size: 10px; }
+    .founder-card h2 { margin: 0 0 12px; font-family: var(--sans); font-size: 29px; font-weight: 650; letter-spacing: -.035em; }
+    .founder-card p { max-width: 510px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .purpose-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 42px; }
+    .purpose-card { padding: 25px 24px 27px; border-top: 1px solid var(--line); }
+    .purpose-card .eyebrow { display: block; margin-bottom: 13px; font-size: 10px; }
+    .purpose-card h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 27px; font-weight: 400; letter-spacing: -.035em; }
+    .purpose-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .values-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .values-list li { display: flex; align-items: baseline; gap: 10px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .values-list li::before { color: var(--accent-strong); content: "—"; }
+    .about-page-tagline { margin: 47px 0 0; color: var(--accent-strong); font-family: var(--serif); font-size: 22px; font-style: italic; }
+
     .contact { position: relative; overflow: hidden; margin-top: clamp(32px, 5vw, 64px); padding: 83px 0; background: var(--section-surface); color: var(--ink); transition: background-color .3s ease; }
     .contact:after { position: absolute; top: -225px; right: -110px; width: 560px; height: 560px; border: 1px solid var(--accent-wash); border-radius: 50%; content: ""; box-shadow: 0 0 0 55px var(--section-surface), 0 0 0 56px var(--accent-soft), 0 0 0 116px var(--section-surface), 0 0 0 117px var(--accent-wash); }
     .contact-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: end; gap: 35px; }
@@ -329,9 +348,12 @@
 
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand .brand-logo { width: 91px; }
-    .footer-note, .footer-links { color: var(--footer-muted); font-size: 10px; }
-    .footer-links { display: flex; gap: 21px; }
+    .footer-brand { align-items: flex-start; flex-direction: column; gap: 4px; color: var(--accent-strong); }
+    .footer-brand-name { font-family: var(--serif); font-size: 36px; font-weight: 700; letter-spacing: -.08em; line-height: 1; }
+    .footer-tagline { font-family: var(--serif); font-size: 17px; font-style: italic; font-weight: 600; }
+    .footer-meta { display: flex; align-items: flex-end; flex-direction: column; gap: 10px; color: var(--footer-muted); font-size: 10px; }
+    .footer-links { display: flex; gap: 6px; }
+    .footer-links a + a::before { margin-right: 6px; color: var(--footer-muted); content: "·"; }
     .footer-links a:hover { color: var(--accent-strong); }
 
     .hero-content > * { animation: hero-enter .65s both cubic-bezier(.2,.75,.25,1); }
@@ -383,10 +405,9 @@
       .hero-visual { min-height: 250px; }
       .visual-card { top: 0; right: 0; width: calc(100% - 13px); }
       html { scroll-padding-top: 70px; }
-      .trust-inner { align-items: flex-start; flex-direction: column; padding: 21px 0; gap: 17px; }
-      .trust-copy { max-width: none; }
-      .trust-items { width: 100%; justify-content: space-between; gap: 8px; }
-      .trust-item { font-size: 11px; }
+      .trust-inner { min-height: 0; padding: 21px 0; }
+      .trust-items { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 8px; }
+      .trust-item { font-size: 11px; line-height: 1.45; }
       .trust-item span { font-size: 7px; }
       .section { padding: 74px 0; }
       .section-heading { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 30px; }
@@ -419,11 +440,24 @@
       .methodology-notes { grid-template-columns: 1fr; gap: 26px; margin-top: 30px; padding: 26px 0; }
       .methodology-notes h2 { font-size: 23px; }
       .methodology-cta { align-items: flex-start; flex-direction: column; margin-top: 42px; }
+      .about-page { padding: 62px 0 76px; }
+      .about-page-heading { margin-bottom: 30px; }
+      .about-page-heading h1 { font-size: clamp(38px, 10vw, 48px); }
+      .about-page-heading p { font-size: 14px; }
+      .founders-grid, .purpose-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+      .founder-card { padding: 23px 20px 25px; }
+      .founder-card h2 { font-size: 25px; }
+      .founder-card p { font-size: 14px; }
+      .purpose-card { padding: 22px 0 24px; }
+      .purpose-card h2 { font-size: 24px; }
+      .about-page-tagline { margin-top: 30px; font-size: 20px; }
       .contact { padding: 67px 0; }
       .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
       .contact h2 { font-size: 46px; }
-      .footer-inner { align-items: flex-start; flex-wrap: wrap; }
-      .footer-note { order: 3; width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
+      .footer-brand-name { font-size: 32px; }
+      .footer-tagline { font-size: 16px; }
+      .footer-meta { align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *:before, *:after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
@@ -441,9 +475,9 @@
       </a>
       <nav class="nav" id="main-nav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
-        <a href="#servicos">Serviços</a>
         <a href="#abordagem">Abordagem</a>
-        <a href="#sobre">Sobre nós</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre-nos">Sobre nós</a>
         <a class="nav-cta nav-cta-mobile" href="#contacto">Contactos <span class="arrow" aria-hidden="true">↗</span></a>
       </nav>
       <div class="header-actions">
@@ -484,14 +518,13 @@
       </div>
     </section>
 
-    <section class="trust" id="abordagem" aria-label="Setores de atuação">
+    <section class="trust" id="abordagem" aria-label="Princípios de atuação">
       <div class="container trust-inner">
-        <p class="trust-copy">Experiência que acompanha a realidade de cada negócio.</p>
         <div class="trust-items">
-          <div class="trust-item"><span>Setor</span>Financeiro</div>
-          <div class="trust-item"><span>Setor</span>Indústria</div>
-          <div class="trust-item"><span>Setor</span>Tecnologia</div>
-          <div class="trust-item"><span>Setor</span>Serviços</div>
+          <div class="trust-item"><span>Rigor</span>Análise fundamentada</div>
+          <div class="trust-item"><span>Confiança</span>Ética e transparência</div>
+          <div class="trust-item"><span>Proximidade</span>Soluções à medida</div>
+          <div class="trust-item"><span>Valor</span>Recomendações práticas</div>
         </div>
       </div>
     </section>
@@ -546,7 +579,7 @@
       </div>
     </section>
 
-    <section class="about" id="sobre">
+    <section class="about" id="abordagem">
       <div class="container about-grid">
         <div class="about-copy">
           <span class="eyebrow">A nossa abordagem</span>
@@ -642,12 +675,67 @@
     </section>
   </main>
 
+  <main id="about-view" hidden>
+    <section class="about-page">
+      <div class="container">
+        <a class="methodology-back" href="#inicio"><span aria-hidden="true">←</span> Voltar à página principal</a>
+        <div class="about-page-heading">
+          <span class="eyebrow">Sobre nós</span>
+          <h1 id="about-title" tabindex="-1">Experiência que inspira confiança.<br>Proximidade que faz a diferença.</h1>
+          <p>A AR/CC nasce da iniciativa de Andreia Rocha e Cláudia Coimbra, duas profissionais com percursos na área da saúde, da auditoria e da qualidade, unidas por uma visão comum: ajudar as organizações a trabalhar de forma mais eficiente, segura e estruturada.</p>
+          <p>Aliamos experiência profissional, rigor na análise e uma abordagem próxima, procurando transformar riscos e oportunidades identificados em recomendações claras e soluções ajustadas à realidade de cada cliente.</p>
+        </div>
+        <div class="founders-grid">
+          <article class="founder-card">
+            <span class="eyebrow">Cofundadora</span>
+            <h2>Andreia Rocha</h2>
+            <p>Enfermeira de formação, com experiência em gestão e auditoria interna, exercendo funções de coordenação de um Gabinete de Auditoria Interna. Possui formação avançada em Gestão e Economia da Saúde.</p>
+          </article>
+          <article class="founder-card">
+            <span class="eyebrow">Cofundadora</span>
+            <h2>Cláudia Coimbra</h2>
+            <p>Enfermeira com mais de 20 anos de experiência hospitalar, com participação em atividades de gestão da qualidade, auditoria de processos e melhoria contínua, nomeadamente no âmbito de comissões institucionais.</p>
+          </article>
+        </div>
+        <div class="purpose-grid">
+          <section class="purpose-card" aria-labelledby="about-mission">
+            <span class="eyebrow">A nossa missão</span>
+            <h2 id="about-mission">Criar valor através da melhoria.</h2>
+            <p>Apoiar as organizações na melhoria do seu desempenho, dos sistemas de gestão e do controlo de riscos, através de serviços de consultoria e auditoria rigorosos, adaptados à sua realidade e orientados para resultados.</p>
+          </section>
+          <section class="purpose-card" aria-labelledby="about-vision">
+            <span class="eyebrow">A nossa visão</span>
+            <h2 id="about-vision">Evoluir com confiança.</h2>
+            <p>Ser uma empresa reconhecida pela competência técnica, confiança e capacidade de acompanhar a evolução das organizações e os desafios da transformação tecnológica.</p>
+          </section>
+          <section class="purpose-card" aria-label="Os nossos valores">
+            <span class="eyebrow">Os nossos valores</span>
+            <ul class="values-list">
+              <li>Integridade e independência</li>
+              <li>Rigor e competência</li>
+              <li>Proximidade e compromisso</li>
+              <li>Inovação</li>
+              <li>Melhoria contínua</li>
+            </ul>
+          </section>
+        </div>
+        <p class="about-page-tagline">Analisar. Melhorar. Evoluir.</p>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="container footer-inner">
-      <a class="brand footer-brand" href="#inicio" aria-label="audita.mos — início"><img class="brand-logo" src="assets/logo-ar-cc.svg" alt=""></a>
-      <span class="footer-note">Auditoria interna com visão de futuro.</span>
-      <div class="footer-links"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#contacto">Contacto</a></div>
-      <span class="footer-note">© <span id="year">2026</span> audita.mos</span>
+      <a class="brand footer-brand" href="#inicio" aria-label="AR/CC — início">
+        <span class="footer-brand-name">AR/CC</span>
+        <span class="footer-tagline">Analisar. Melhorar. Evoluir.</span>
+      </a>
+      <div class="footer-meta">
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <a href="#servicos">Serviços</a><a href="#sobre-nos">Sobre nós</a><a href="#contacto">Contactos</a>
+        </nav>
+        <span>© <span id="year">2026</span> AR/CC</span>
+      </div>
     </div>
   </footer>
 
@@ -658,19 +746,24 @@
     const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
     const homeView = document.querySelector("#home-view");
     const methodologyView = document.querySelector("#methodology-view");
+    const aboutView = document.querySelector("#about-view");
     const homeTitle = document.title;
     const renderRoute = (initial = false) => {
       const isMethodology = window.location.hash === "#metodologia";
-      homeView.hidden = isMethodology;
+      const isAbout = window.location.hash === "#sobre-nos";
+      homeView.hidden = isMethodology || isAbout;
       methodologyView.hidden = !isMethodology;
+      aboutView.hidden = !isAbout;
       document.title = isMethodology
         ? "A nossa metodologia — audita.mos"
-        : homeTitle;
+        : isAbout
+          ? "Sobre nós — audita.mos"
+          : homeTitle;
 
-      if (isMethodology) {
+      if (isMethodology || isAbout) {
         navLinks.forEach((link) => link.removeAttribute("aria-current"));
         window.scrollTo(0, 0);
-        document.querySelector("#methodology-title").focus({ preventScroll: true });
+        document.querySelector(isMethodology ? "#methodology-title" : "#about-title").focus({ preventScroll: true });
       } else if (!initial && window.location.hash) {
         const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
         target?.scrollIntoView();
@@ -740,7 +833,7 @@
       }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
       animatedElements.forEach((element) => revealObserver.observe(element));
 
-      const trackedSections = [...document.querySelectorAll("#inicio, #servicos, #abordagem, #sobre, #contacto")];
+      const trackedSections = [...document.querySelectorAll("#inicio, #servicos, #abordagem, #contacto")];
       const updateActiveLink = () => {
         if (homeView.hidden) {
           navLinks.forEach((link) => link.removeAttribute("aria-current"));
