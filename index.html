@@ -170,7 +170,7 @@
     .theme-switch-icon { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
     .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--accent-strong); color: var(--button-ink); transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
     .theme-switch-thumb svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
+    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
     .nav-cta, .button {
       display: inline-flex;
       align-items: center;
@@ -188,6 +188,7 @@
     }
     .nav-cta-mobile { display: none; }
     .nav-cta:hover, .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--button-shadow); }
+    button.button { cursor: pointer; }
     .button-light { border-color: var(--accent); background: transparent; color: var(--accent-strong); }
     .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
     .arrow { font-size: 17px; line-height: 1; }
@@ -353,6 +354,24 @@
     .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
     .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
     .contact-action { flex: 0 0 auto; padding-bottom: 5px; }
+    .contact-dialog { width: min(440px, calc(100% - 32px)); padding: 30px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px var(--card-shadow); }
+    .contact-dialog::backdrop { background: rgba(4, 15, 25, .7); backdrop-filter: blur(4px); }
+    .contact-dialog h2 { margin: 0 0 10px; font-family: var(--serif); font-size: 32px; font-weight: 400; }
+    .contact-dialog-copy { margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .contact-options { display: grid; gap: 10px; }
+    .contact-option { display: flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 16px; border: 1px solid var(--accent); background: var(--accent); color: var(--button-ink); font-size: 13px; font-weight: 650; transition: background-color .2s, border-color .2s; }
+    .contact-option:hover:not(:disabled) { border-color: var(--accent-hover); background: var(--accent-hover); }
+    .contact-option:disabled { border-color: var(--line); background: var(--section-surface); color: var(--muted); cursor: not-allowed; }
+    .contact-form { display: grid; gap: 13px; }
+    .contact-form[hidden], .contact-options[hidden] { display: none; }
+    .contact-form label { display: grid; gap: 6px; color: var(--ink); font-size: 12px; font-weight: 600; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; }
+    .contact-form textarea { min-height: 90px; resize: vertical; }
+    .contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+    .contact-form .contact-option { width: 100%; font: inherit; font-size: 13px; }
+    .contact-dialog-note { margin: 14px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .contact-dialog-close { display: block; margin: 18px 0 0 auto; padding: 8px 0; border: 0; background: transparent; color: var(--accent-strong); font-size: 12px; font-weight: 650; cursor: pointer; }
+    .contact-dialog-close[hidden] { display: none; }
 
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
@@ -466,6 +485,8 @@
       .about-page-tagline { margin-top: 30px; font-size: 20px; }
       .contact { padding: 67px 0; }
       .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
+      .contact-dialog { padding: 25px 20px; }
+      .contact-dialog { max-height: calc(100% - 32px); overflow-y: auto; }
       .contact h2 { font-size: 46px; }
       .footer-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
       .footer-brand .brand-logo { width: 96px; }
@@ -630,9 +651,42 @@
           <h2>Uma conversa pode mudar a perspetiva.</h2>
           <p class="contact-copy">Conheça como uma auditoria interna independente pode apoiar a sua empresa.</p>
         </div>
+        <div class="contact-action">
+          <button class="button" id="open-contact-dialog" type="button">Contactos <span class="arrow" aria-hidden="true">↗</span></button>
+        </div>
       </div>
     </section>
   </main>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-copy">
+    <h2 id="contact-dialog-title">Escolha como prefere contactar</h2>
+    <p class="contact-dialog-copy" id="contact-dialog-copy">Estamos disponíveis para conversar sobre as necessidades da sua organização.</p>
+    <div class="contact-options">
+      <a class="contact-option" href="tel:+351000000000">Ligar — +351 000 000 000</a>
+      <a class="contact-option" href="https://wa.me/351000000000" target="_blank" rel="noopener noreferrer">WhatsApp — +351 000 000 000</a>
+      <button class="contact-option" type="button" disabled>Email — em breve</button>
+      <button class="contact-option" id="show-contact-form" type="button">Deixe os seus dados para contacto posterior</button>
+    </div>
+    <p class="contact-dialog-note">O número indicado é fictício e será substituído pelos contactos definitivos.</p>
+    <form class="contact-form" id="contact-form" hidden>
+      <label for="contact-name">Nome
+        <input id="contact-name" name="name" type="text" autocomplete="name" required>
+      </label>
+      <label for="contact-email">Email
+        <input id="contact-email" name="email" type="email" autocomplete="email" required>
+      </label>
+      <label for="contact-phone">Telefone (opcional)
+        <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
+      </label>
+      <label for="contact-message">Como podemos ajudar?
+        <textarea id="contact-message" name="message" required></textarea>
+      </label>
+      <button class="contact-option" type="submit" disabled>Envio ainda não disponível</button>
+    </form>
+    <p class="contact-dialog-note" id="contact-form-note" hidden>O formulário ainda não está ligado a um serviço de receção. Os dados preenchidos não serão enviados nem guardados.</p>
+    <button class="contact-dialog-close" id="show-contact-options" type="button" hidden>Voltar às opções de contacto</button>
+    <button class="contact-dialog-close" id="close-contact-dialog" type="button">Fechar</button>
+  </dialog>
 
   <main id="methodology-view" hidden>
     <section class="methodology">
@@ -799,6 +853,45 @@
     };
     window.addEventListener("hashchange", () => renderRoute());
     renderRoute(true);
+
+    const contactDialog = document.querySelector("#contact-dialog");
+    const openContactDialog = document.querySelector("#open-contact-dialog");
+    const contactOptions = document.querySelector(".contact-options");
+    const contactForm = document.querySelector("#contact-form");
+    const contactFormNote = document.querySelector("#contact-form-note");
+    const showContactOptions = document.querySelector("#show-contact-options");
+    openContactDialog.addEventListener("click", () => contactDialog.showModal());
+    document.querySelector("#close-contact-dialog").addEventListener("click", () => contactDialog.close());
+    document.querySelector("#show-contact-form").addEventListener("click", () => {
+      contactOptions.hidden = true;
+      document.querySelector(".contact-dialog-note").hidden = true;
+      contactForm.hidden = false;
+      contactFormNote.hidden = false;
+      showContactOptions.hidden = false;
+      document.querySelector("#contact-dialog-title").textContent = "Deixe os seus dados de contacto";
+      document.querySelector("#contact-name").focus();
+    });
+    showContactOptions.addEventListener("click", () => {
+      contactForm.hidden = true;
+      contactFormNote.hidden = true;
+      showContactOptions.hidden = true;
+      contactOptions.hidden = false;
+      document.querySelector(".contact-dialog-note").hidden = false;
+      document.querySelector("#contact-dialog-title").textContent = "Escolha como prefere contactar";
+      document.querySelector("#show-contact-form").focus();
+    });
+    contactDialog.addEventListener("click", (event) => {
+      if (event.target === contactDialog) contactDialog.close();
+    });
+    contactDialog.addEventListener("close", () => {
+      contactForm.reset();
+      contactForm.hidden = true;
+      contactFormNote.hidden = true;
+      showContactOptions.hidden = true;
+      contactOptions.hidden = false;
+      document.querySelector(".contact-dialog-note").hidden = false;
+      document.querySelector("#contact-dialog-title").textContent = "Escolha como prefere contactar";
+    });
 
     const updateThemeControl = () => {
       const isLight = document.documentElement.dataset.theme === "light";
