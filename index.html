@@ -323,11 +323,16 @@
     .about-page-heading { max-width: 980px; margin-bottom: 38px; }
     .about-page-heading h1 { max-width: 920px; margin: 18px 0 20px; font-family: var(--sans); font-size: clamp(39px, 5.3vw, 62px); font-weight: 700; letter-spacing: -.045em; line-height: 1.14; }
     .about-page-heading p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.85; }
-    .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 38px; }
+    .founders-team-photo { margin: 0 0 38px; overflow: hidden; border: 1px solid var(--line); }
+    .founders-team-photo img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 42%; }
+    .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 0; }
     .founder-card { padding: 27px 25px 30px; border: 1px solid var(--line); background: var(--surface); }
+    .founder-profile { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
+    .founder-photo { display: block; width: 112px; height: 144px; flex: 0 0 auto; object-fit: cover; object-position: center 30%; }
     .founder-card .eyebrow { display: block; margin-bottom: 11px; font-size: 10px; }
-    .founder-card h2 { margin: 0 0 12px; font-family: var(--sans); font-size: 29px; font-weight: 650; letter-spacing: -.035em; }
+    .founder-card h2 { margin: 0; font-family: var(--sans); font-size: 29px; font-weight: 650; letter-spacing: -.035em; }
     .founder-card p { max-width: 510px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .founder-card p + p { margin-top: 12px; }
     .purpose-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 42px; }
     .purpose-card { padding: 25px 24px 27px; border-top: 1px solid var(--line); }
     .purpose-card .eyebrow { display: block; margin-bottom: 13px; font-size: 10px; }
@@ -444,9 +449,14 @@
       .about-page-heading { margin-bottom: 30px; }
       .about-page-heading h1 { font-size: clamp(38px, 10vw, 48px); }
       .about-page-heading p { font-size: 14px; }
+      .founders-team-photo { margin-bottom: 28px; }
+      .founders-team-photo img { aspect-ratio: 3 / 2; }
       .founders-grid, .purpose-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
+      .founders-grid { margin-top: 0; }
       .founder-card { padding: 23px 20px 25px; }
       .founder-card h2 { font-size: 25px; }
+      .founder-photo { width: 96px; height: 126px; }
+      .founder-profile { gap: 14px; margin-bottom: 18px; }
       .founder-card p { font-size: 14px; }
       .purpose-card { padding: 22px 0 24px; }
       .purpose-card h2 { font-size: 24px; }
@@ -685,16 +695,34 @@
           <p>A AR/CC nasce da iniciativa de Andreia Rocha e Cláudia Coimbra, duas profissionais com percursos na área da saúde, da auditoria e da qualidade, unidas por uma visão comum: ajudar as organizações a trabalhar de forma mais eficiente, segura e estruturada.</p>
           <p>Aliamos experiência profissional, rigor na análise e uma abordagem próxima, procurando transformar riscos e oportunidades identificados em recomendações claras e soluções ajustadas à realidade de cada cliente.</p>
         </div>
+        <figure class="founders-team-photo">
+          <img src="assets/fundadoras.jpg" alt="Andreia Rocha e Cláudia Coimbra juntas" width="1024" height="768" loading="lazy" decoding="async">
+        </figure>
         <div class="founders-grid">
           <article class="founder-card">
-            <span class="eyebrow">Cofundadora</span>
-            <h2>Andreia Rocha</h2>
-            <p>Enfermeira de formação, com experiência em gestão e auditoria interna, exercendo funções de coordenação de um Gabinete de Auditoria Interna. Possui formação avançada em Gestão e Economia da Saúde.</p>
+            <div class="founder-profile">
+              <img class="founder-photo" src="assets/andreia.jpg" alt="Andreia Rocha" width="768" height="1152" loading="lazy" decoding="async">
+              <div>
+                <span class="eyebrow">Cofundadora</span>
+                <h2>Andreia Rocha</h2>
+              </div>
+            </div>
+            <p>Mestre em Gestão e Economia de Serviços de Saúde, com formação pós-graduada em gestão de organizações e serviços de saúde.</p>
+            <p>Com experiência em auditoria interna desde 2017, coordena atualmente um Gabinete de Auditoria Interna, desenvolvendo atividade nas áreas de auditoria baseada no risco, controlo interno, conformidade normativa e acompanhamento de recomendações.</p>
+            <p>Possui ainda competências em gestão de riscos, governação, sistemas de gestão da qualidade e análise de dados, incluindo Business Intelligence e Power BI.</p>
           </article>
           <article class="founder-card">
-            <span class="eyebrow">Cofundadora</span>
-            <h2>Cláudia Coimbra</h2>
-            <p>Enfermeira com mais de 20 anos de experiência hospitalar, com participação em atividades de gestão da qualidade, auditoria de processos e melhoria contínua, nomeadamente no âmbito de comissões institucionais.</p>
+            <div class="founder-profile">
+              <img class="founder-photo" src="assets/claudia.png" alt="Cláudia Coimbra" width="768" height="1024" loading="lazy" decoding="async">
+              <div>
+                <span class="eyebrow">Cofundadora</span>
+                <h2>Cláudia Coimbra</h2>
+              </div>
+            </div>
+            <p>Licenciada em Enfermagem, com mais de 20 anos de experiência profissional em contexto hospitalar e investigação clínica, entre outras áreas de atuação.</p>
+            <p>Integra estruturas institucionais dedicadas à qualidade e segurança dos cuidados, participando em auditorias a processos clínicos, análise de indicadores, identificação de áreas de melhoria e acompanhamento de medidas corretivas.</p>
+            <p>A sua experiência em investigação clínica inclui o cumprimento de protocolos e requisitos de qualidade, com especial atenção ao rigor documental e à rastreabilidade da informação.</p>
+            <p>Atualmente, frequenta o Mestrado em Enfermagem de Reabilitação e desenvolve competências na área da auditoria e gestão da qualidade.</p>
           </article>
         </div>
         <div class="purpose-grid">
