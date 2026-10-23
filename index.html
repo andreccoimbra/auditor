@@ -327,8 +327,6 @@
     .about-page-heading { max-width: 980px; margin-bottom: 38px; }
     .about-page-heading h1 { max-width: 920px; margin: 18px 0 20px; font-family: var(--sans); font-size: clamp(39px, 5.3vw, 62px); font-weight: 700; letter-spacing: -.045em; line-height: 1.14; }
     .about-page-heading p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.85; }
-    .founders-team-photo { margin: 0 0 38px; overflow: hidden; border: 1px solid var(--line); }
-    .founders-team-photo img { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 42%; }
     .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 0; }
     .founder-card { padding: 27px 25px 30px; border: 1px solid var(--line); background: var(--surface); }
     .founder-profile { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
@@ -353,6 +351,8 @@
     .contact .eyebrow { color: var(--accent-strong); }
     .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
     .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .contact-team-photo { width: clamp(180px, 24vw, 290px); flex: 0 1 290px; margin: 0; border: 1px solid var(--line); }
+    .contact-team-photo img { display: block; width: 100%; height: auto; }
     .contact-action { flex: 0 0 auto; padding-bottom: 5px; }
     .contact-dialog { width: min(440px, calc(100% - 32px)); padding: 30px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px var(--card-shadow); }
     .contact-dialog::backdrop { background: rgba(4, 15, 25, .7); backdrop-filter: blur(4px); }
@@ -408,6 +408,8 @@
       .trust-items { gap: 10px; }
       .trust-item { font-size: 12px; }
       .about-grid { gap: 45px; }
+      .contact-inner { flex-wrap: wrap; }
+      .contact-team-photo { width: min(38%, 240px); flex-basis: 200px; }
     }
     @media (max-width: 640px) {
       .container { width: calc(100% - 40px); }
@@ -471,8 +473,6 @@
       .about-page-heading { margin-bottom: 30px; }
       .about-page-heading h1 { font-size: clamp(38px, 10vw, 48px); }
       .about-page-heading p { font-size: 14px; }
-      .founders-team-photo { margin-bottom: 28px; }
-      .founders-team-photo img { aspect-ratio: 3 / 2; }
       .founders-grid, .purpose-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 28px; }
       .founders-grid { margin-top: 0; }
       .founder-card { padding: 23px 20px 25px; }
@@ -485,6 +485,7 @@
       .about-page-tagline { margin-top: 30px; font-size: 20px; }
       .contact { padding: 67px 0; }
       .contact-inner { align-items: flex-start; flex-direction: column; gap: 25px; }
+      .contact-team-photo { width: min(100%, 310px); flex: 0 0 auto; }
       .contact-dialog { padding: 25px 20px; }
       .contact-dialog { max-height: calc(100% - 32px); overflow-y: auto; }
       .contact h2 { font-size: 46px; }
@@ -651,6 +652,9 @@
           <h2>Uma conversa pode mudar a perspetiva.</h2>
           <p class="contact-copy">Conheça como uma auditoria interna independente pode apoiar a sua empresa.</p>
         </div>
+        <figure class="contact-team-photo">
+          <img src="assets/fundadoras.jpg" alt="Andreia Rocha e Cláudia Coimbra juntas" width="1024" height="768" loading="lazy" decoding="async">
+        </figure>
         <div class="contact-action">
           <button class="button" id="open-contact-dialog" type="button">Contactos <span class="arrow" aria-hidden="true">↗</span></button>
         </div>
@@ -749,9 +753,6 @@
           <p>A AR/CC nasce da iniciativa de Andreia Rocha e Cláudia Coimbra, duas profissionais com percursos na área da saúde, da auditoria e da qualidade, unidas por uma visão comum: ajudar as organizações a trabalhar de forma mais eficiente, segura e estruturada.</p>
           <p>Aliamos experiência profissional, rigor na análise e uma abordagem próxima, procurando transformar riscos e oportunidades identificados em recomendações claras e soluções ajustadas à realidade de cada cliente.</p>
         </div>
-        <figure class="founders-team-photo">
-          <img src="assets/fundadoras.jpg" alt="Andreia Rocha e Cláudia Coimbra juntas" width="1024" height="768" loading="lazy" decoding="async">
-        </figure>
         <div class="founders-grid">
           <article class="founder-card">
             <div class="founder-profile">
