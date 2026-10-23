@@ -351,8 +351,8 @@
     .contact .eyebrow { color: var(--accent-strong); }
     .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
     .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
-    .contact-team-photo { width: clamp(180px, 24vw, 290px); flex: 0 1 290px; margin: 12px 0 0; border: 1px solid var(--line); }
-    .contact-team-photo img { display: block; width: 100%; height: auto; }
+    .contact-team-photo { width: clamp(180px, 24vw, 290px); flex: 0 1 290px; margin: 12px 0 0; }
+    .contact-team-photo img { display: block; width: 100%; height: auto; -webkit-mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); mask-composite: intersect; }
     .contact-action { grid-column: 1 / -1; justify-self: end; }
     .contact-dialog { width: min(440px, calc(100% - 32px)); padding: 30px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px var(--card-shadow); }
     .contact-dialog::backdrop { background: rgba(4, 15, 25, .7); backdrop-filter: blur(4px); }
