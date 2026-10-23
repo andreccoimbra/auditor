@@ -92,15 +92,16 @@
       --button-shadow: rgba(150, 105, 38, .2);
     }
 
-    :root[data-theme="light"] .nav-cta,
     :root[data-theme="light"] .button { color: var(--button-ink); }
     :root[data-theme="light"] .eyebrow,
     :root[data-theme="light"] h1 em { color: var(--accent-strong); }
-    :root[data-theme="light"] .nav a:not(.nav-cta):hover,
+    :root[data-theme="light"] .nav a:hover,
+    :root[data-theme="light"] .header-contact-link:hover,
     :root[data-theme="light"] .nav a[aria-current="location"],
-    :root[data-theme="light"] .nav a:not(.nav-cta):after { color: var(--accent-strong); }
-    :root[data-theme="light"] .nav a:not(.nav-cta):after { background: var(--accent); }
-    :root[data-theme="light"] .nav-cta:hover,
+    :root[data-theme="light"] .nav a:after,
+    :root[data-theme="light"] .header-contact-link:after { color: var(--accent-strong); }
+    :root[data-theme="light"] .nav a:after,
+    :root[data-theme="light"] .header-contact-link:after { background: var(--accent); }
     :root[data-theme="light"] .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); }
     :root[data-theme="light"] .button-light { border-color: var(--accent); color: var(--accent-strong); }
     :root[data-theme="light"] .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
@@ -146,10 +147,12 @@
     .brand-description { display: flex; min-height: 32px; flex-direction: column; justify-content: center; gap: 4px; padding-left: 13px; border-left: 1px solid var(--accent); color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .08em; line-height: 1.25; text-transform: uppercase; white-space: nowrap; }
     .header-actions { display: flex; align-items: center; gap: 14px; }
     .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
-    .nav a:not(.nav-cta) { position: relative; transition: color .25s; }
-    .nav a:not(.nav-cta):after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--accent-strong); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
-    .nav a:not(.nav-cta):hover, .nav a[aria-current="location"] { color: var(--accent-strong); }
-    .nav a:not(.nav-cta):hover:after, .nav a[aria-current="location"]:after { transform: scaleX(1); }
+    .nav a, .header-contact-link { position: relative; transition: color .25s; }
+    .nav a:after, .header-contact-link:after { position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--accent-strong); content: ""; transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav a:hover, .nav a[aria-current="location"], .header-contact-link:hover { color: var(--accent-strong); }
+    .nav a:hover:after, .nav a[aria-current="location"]:after, .header-contact-link:hover:after { transform: scaleX(1); }
+    .header-contact-link { font-size: 13px; font-weight: 550; }
+    .nav-contact-mobile { display: none; }
     .theme-toggle {
       display: inline-flex;
       align-items: center;
@@ -171,7 +174,7 @@
     .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--accent-strong); color: var(--button-ink); transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
     .theme-switch-thumb svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
     .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
-    .nav-cta, .button {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -186,8 +189,7 @@
       font-weight: 600;
       transition: background .2s, border-color .2s, transform .2s;
     }
-    .nav-cta-mobile { display: none; }
-    .nav-cta:hover, .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--button-shadow); }
+    .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--button-shadow); }
     button.button { cursor: pointer; }
     .button-light { border-color: var(--accent); background: transparent; color: var(--accent-strong); }
     .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
@@ -418,14 +420,13 @@
       .brand-logo { width: 84px; }
       .brand-description { font-size: 8px; letter-spacing: .05em; }
       .theme-toggle { width: 42px; height: 42px; min-height: 42px; padding: 0; }
-      .nav-cta-desktop { display: none; }
-      .nav-cta-mobile { display: inline-flex; }
+      .nav-contact-desktop { display: none; }
+      .nav-contact-mobile { display: block; }
       .menu-toggle { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; }
       .menu-toggle svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; }
       .nav { position: absolute; z-index: 5; top: 69px; right: 0; left: 0; display: none; align-items: stretch; gap: 0; padding: 10px 20px 20px; border-bottom: 1px solid var(--line); background: var(--mobile-nav-bg); backdrop-filter: blur(16px); }
       .nav.is-open { display: flex; flex-direction: column; }
-      .nav a:not(.nav-cta) { padding: 13px 3px; }
-      .nav-cta { margin-top: 8px; }
+      .nav a { padding: 13px 3px; }
       .hero { padding: 62px 0 56px; }
       .hero-grid { grid-template-columns: 1fr; gap: 29px; }
       h1 { max-width: 500px; font-size: clamp(48px, 13vw, 66px); }
@@ -510,13 +511,14 @@
       </a>
       <nav class="nav" id="main-nav" aria-label="Navegação principal">
         <a href="#inicio">Início</a>
-        <a href="#abordagem">Abordagem</a>
         <a href="#servicos">Serviços</a>
+        <a href="#abordagem">Abordagem</a>
         <a href="#metodologia">Metodologia</a>
         <a href="#sobre-nos">Sobre nós</a>
-        <a class="nav-cta nav-cta-mobile" href="#contacto">Contactos <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="nav-contact-mobile" href="#contacto">Contactos</a>
       </nav>
       <div class="header-actions">
+        <a class="header-contact-link nav-contact-desktop" href="#contacto">Contactos</a>
         <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-label="Tema claro" aria-checked="false">
           <span class="theme-switch" aria-hidden="true">
             <svg class="theme-switch-icon" viewBox="0 0 24 24"><path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/></svg>
@@ -524,7 +526,6 @@
             <span class="theme-switch-thumb"><svg id="theme-thumb-icon" viewBox="0 0 24 24"></svg></span>
           </span>
         </button>
-        <a class="nav-cta nav-cta-desktop" href="#contacto">Contactos <span class="arrow" aria-hidden="true">↗</span></a>
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -555,7 +556,7 @@
       </div>
     </section>
 
-    <section class="trust" id="abordagem" aria-label="Princípios de atuação">
+    <section class="trust" aria-label="Princípios de atuação">
       <div class="container trust-inner">
         <div class="trust-items">
           <div class="trust-item"><span>Rigor</span>Análise fundamentada</div>
