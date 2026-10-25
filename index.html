@@ -5,55 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#091b2b">
   <meta name="description" content="Auditoria interna independente para empresas que querem crescer com confiança. Avaliação de riscos, processos e controlos internos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>AR/CC - Auditoria Interna</title>
-  <script>
-    const savedTheme = localStorage.getItem("nexo-theme");
-    document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
-  </script>
   <style>
     :root {
-      color-scheme: dark;
-      --paper: #091b2b;
-      --white: #142a3e;
-      --surface: #11263a;
-      --section-surface: #0d2236;
-      --ink: #f3eee4;
-      --muted: #b2bdc8;
-      --accent: #d6aa67;
-      --accent-hover: #bd8d4c;
-      --accent-strong: #edc991;
-      --line: #294057;
-      --header-bg: rgba(9, 27, 43, .9);
-      --header-line: rgba(255, 255, 255, .08);
-      --mobile-nav-bg: rgba(9, 27, 43, .98);
-      --logo-bg: #17324b;
-      --button-ink: #142538;
-      --trust-ink: #e4e9ed;
-      --trust-muted: #98a8b7;
-      --service-card-bg: #142c42;
-      --service-card-hover: #1b3852;
-      --service-icon-bg: #1b3852;
-      --service-card-heading: #f3eee4;
-      --service-card-copy: #b2bdc8;
-      --service-card-number: #edc991;
-      --service-card-icon-color: #edc991;
-      --service-card-icon-hover-bg: rgba(214, 170, 103, .15);
-      --principle-line: #2c4358;
-      --footer-bg: #061522;
-      --footer-ink: #e4e9ed;
-      --footer-muted: #a4b1bd;
-      --footer-accent: #edc991;
-      --accent-wash: rgba(214, 170, 103, .15);
-      --accent-soft: rgba(214, 170, 103, .1);
-      --hero-frame: #0b1e30;
-      --card-shadow: rgba(4, 15, 25, .36);
-      --hover-shadow: rgba(4, 15, 25, .24);
-      --button-shadow: rgba(214, 170, 103, .18);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: "Segoe UI", Arial, sans-serif;
-    }
-
-    :root[data-theme="light"] {
       color-scheme: light;
       --paper: #f7f3eb;
       --white: #fffdf8;
@@ -65,9 +22,9 @@
       --accent-hover: #a57530;
       --accent-strong: #875f26;
       --line: #ded7ca;
-      --header-bg: rgba(247, 243, 235, .94);
-      --header-line: rgba(20, 43, 64, .12);
-      --mobile-nav-bg: rgba(247, 243, 235, .98);
+      --header-bg: rgba(9, 27, 43, .94);
+      --header-line: rgba(255, 255, 255, .08);
+      --mobile-nav-bg: rgba(9, 27, 43, .98);
       --logo-bg: #eee6d7;
       --button-ink: #14283b;
       --trust-ink: #405568;
@@ -84,35 +41,16 @@
       --footer-bg: #10283d;
       --footer-ink: #f3eee4;
       --footer-muted: #c0c9d0;
+      --footer-accent: #edc991;
       --accent-wash: rgba(185, 135, 62, .15);
       --accent-soft: rgba(185, 135, 62, .1);
       --hero-frame: #f2efe7;
       --card-shadow: rgba(30, 40, 48, .14);
       --hover-shadow: rgba(30, 40, 48, .12);
       --button-shadow: rgba(150, 105, 38, .2);
+      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", "Segoe UI", Arial, sans-serif;
     }
-
-    :root[data-theme="light"] .button { color: var(--button-ink); }
-    :root[data-theme="light"] .eyebrow,
-    :root[data-theme="light"] h1 em { color: var(--accent-strong); }
-    :root[data-theme="light"] .nav a:hover,
-    :root[data-theme="light"] .header-contact-link:hover,
-    :root[data-theme="light"] .nav a[aria-current="location"],
-    :root[data-theme="light"] .nav a:after,
-    :root[data-theme="light"] .header-contact-link:after { color: var(--accent-strong); }
-    :root[data-theme="light"] .nav a:after,
-    :root[data-theme="light"] .header-contact-link:after { background: var(--accent); }
-    :root[data-theme="light"] .button:hover { border-color: var(--accent-hover); background: var(--accent-hover); }
-    :root[data-theme="light"] .button-light { border-color: var(--accent); color: var(--accent-strong); }
-    :root[data-theme="light"] .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
-    :root[data-theme="light"] .theme-switch { background: #ded7ca; }
-    :root[data-theme="light"] .theme-switch-thumb { transform: translateX(20px); background: var(--white); color: var(--accent-strong); }
-    :root[data-theme="light"] .hero-art-dark { display: none; }
-    :root[data-theme="light"] .hero-art-light { display: block; }
-    :root[data-theme="light"] .brand-logo-dark { display: none; }
-    :root[data-theme="light"] .brand-logo-light { display: block; }
-    :root[data-theme="light"] .footer-brand .brand-logo-dark { display: block; }
-    :root[data-theme="light"] .footer-brand .brand-logo-light { display: none; }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 86px; }
@@ -137,13 +75,17 @@
       top: 0;
       border-bottom: 1px solid var(--header-line);
       background: var(--header-bg);
+      color: #f3eee4;
+      --accent: #d6aa67;
+      --accent-strong: #edc991;
+      --line: #294057;
+      --muted: #b2bdc8;
       backdrop-filter: blur(16px);
       transition: background-color .3s ease, border-color .3s ease;
     }
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; }
     .brand { display: inline-flex; align-items: center; gap: 11px; }
     .brand-logo { display: block; width: 105px; height: auto; }
-    .brand-logo-light { display: none; }
     .brand-description { display: flex; min-height: 32px; flex-direction: column; justify-content: center; gap: 4px; padding-left: 13px; border-left: 1px solid var(--accent); color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: .08em; line-height: 1.25; text-transform: uppercase; white-space: nowrap; }
     .header-actions { display: flex; align-items: center; gap: 14px; }
     .nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 550; }
@@ -153,27 +95,7 @@
     .nav a:hover:after, .nav a[aria-current="location"]:after, .header-contact-link:hover:after { transform: scaleX(1); }
     .header-contact-link { font-size: 13px; font-weight: 550; }
     .nav-contact-mobile { display: none; }
-    .theme-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 40px;
-      padding: 0 3px;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      color: var(--ink);
-      font-size: 12px;
-      cursor: pointer;
-      transition: color .2s;
-    }
-    .theme-toggle:hover { color: var(--accent-strong); }
-    .theme-switch { position: relative; display: inline-flex; width: 43px; height: 24px; flex: 0 0 43px; align-items: center; justify-content: space-between; padding: 0 5px; border: 1px solid var(--line); border-radius: 999px; background: var(--service-icon-bg); transition: background-color .25s, border-color .25s; }
-    .theme-switch-icon { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
-    .theme-switch-thumb { position: absolute; top: 2px; left: 2px; display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: var(--accent-strong); color: var(--button-ink); transition: transform .25s cubic-bezier(.2,.75,.25,1), background-color .25s, color .25s; }
-    .theme-switch-thumb svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-    .theme-toggle:focus-visible, .menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
+    .menu-toggle:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 4px; }
     .button {
       display: inline-flex;
       align-items: center;
@@ -194,9 +116,9 @@
     .button-light { border-color: var(--accent); background: transparent; color: var(--accent-strong); }
     .button-light:hover { border-color: var(--accent-strong); background: var(--accent-soft); }
     .arrow { font-size: 17px; line-height: 1; }
-    .menu-toggle { display: none; border: 0; background: none; color: var(--ink); cursor: pointer; }
+    .menu-toggle { display: none; border: 0; background: none; color: inherit; cursor: pointer; }
 
-    .hero { position: relative; overflow: hidden; padding: 91px 0 90px; }
+    .hero { position: relative; overflow: hidden; padding: 91px 0 90px; background: #091b2b; color: #f3eee4; --accent: #d6aa67; --accent-strong: #edc991; --accent-wash: rgba(214, 170, 103, .15); --line: #294057; --muted: #b2bdc8; --paper: #091b2b; }
     .hero:after {
       position: absolute;
       z-index: -1;
@@ -256,17 +178,16 @@
     }
     .visual-card { box-shadow: 0 28px 80px var(--card-shadow); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
     .hero-art { display: block; width: 100%; height: 100%; object-fit: contain; -webkit-mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); mask-composite: intersect; }
-    .hero-art-light { display: none; }
-    .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .trust-inner { display: flex; min-height: 92px; align-items: center; justify-content: space-between; gap: 28px; }
-    .trust-copy { max-width: 185px; color: var(--muted); font-size: 11px; line-height: 1.55; }
-    .trust-items { display: flex; flex: 1; align-items: center; justify-content: space-around; gap: 20px; }
-    .trust-item { color: var(--trust-ink); font-family: var(--serif); font-size: 15px; letter-spacing: -.03em; text-align: center; }
-    .trust-item span { display: block; margin-bottom: 3px; color: var(--trust-muted); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: .11em; text-align: center; text-transform: uppercase; }
+    .trust { background: #091b2b; }
+    .trust-inner { display: flex; width: 100%; max-width: none; min-height: 112px; padding: 0; }
+    .trust-items { display: flex; width: 100%; align-items: stretch; }
+    .trust-item { flex: 1; min-width: 0; padding: 26px clamp(18px, 5.45vw, 72px); border-right: 1px solid rgba(255, 255, 255, .14); color: #f3eee4; font-family: var(--serif); font-size: 21px; letter-spacing: -.02em; text-align: left; white-space: nowrap; }
+    .trust-item:last-child { border-right: 0; }
+    .trust-item span { display: block; margin-bottom: 5px; color: #d6aa67; font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-align: left; text-transform: uppercase; }
 
-    .section { padding: 108px 0; }
+    .section { padding: 108px 0; background: var(--paper); }
     .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 45px; margin-bottom: 48px; }
-    .section-heading h2, .about-copy h2, .contact h2 {
+    .section-heading h2, .about-heading h2, .contact h2 {
       max-width: 570px;
       margin: 15px 0 0;
       font-family: var(--serif);
@@ -292,31 +213,38 @@
     .service-areas-list li:hover { border-color: var(--accent); background: var(--accent-soft); }
     .service-areas-list svg { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: var(--accent-strong); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
 
-    .about { padding: 86px 0; background: var(--section-surface); transition: background-color .3s ease; }
-    .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; gap: 95px; align-items: start; }
+    .about { padding: 86px 0; background: #091b2b; color: #f3eee4; --accent: #d6aa67; --accent-strong: #edc991; --muted: #b2bdc8; --principle-line: #294057; }
+    .about-grid { display: grid; grid-template-columns: .86fr 1.14fr; grid-template-rows: auto auto; column-gap: 95px; row-gap: 33px; align-items: start; }
+    .about-heading { grid-column: 1; grid-row: 1; }
+    .about-copy { grid-column: 1; grid-row: 2; }
     .about-copy p { max-width: 435px; margin: 22px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+    .about-heading h2 { max-width: 560px; font-size: clamp(46px, 6vw, 68px); line-height: 1.08; }
+    .about-heading h2 em { color: var(--accent-strong); font-weight: 400; }
+    .about-copy p.about-lead { max-width: 560px; margin-top: 0; padding: 0 0 0 25px; border-left: 2px solid var(--accent); color: #f3eee4; font-family: var(--serif); font-size: clamp(22px, 2.5vw, 28px); line-height: 1.6; }
+    .about-lead em { color: var(--accent-strong); font-style: italic; }
     .about-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 25px; color: var(--accent-strong); font-size: 12px; font-weight: 700; }
-    .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 0 36px; }
+    .principles { display: grid; grid-column: 2; grid-row: 2; grid-template-columns: 1fr 1fr; gap: 0 36px; }
     .principle { padding: 21px 0; border-top: 1px solid var(--principle-line); }
-    .principle-top { display: flex; align-items: center; gap: 11px; margin-bottom: 8px; }
-    .principle-index { color: var(--accent-strong); font-family: var(--serif); font-size: 12px; }
-    .principle h3 { margin: 0; font-size: 13px; font-weight: 650; }
-    .principle p { margin: 0 0 0 29px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .principle:nth-child(-n+2) { padding-top: 0; border-top: 0; }
+    .principle-top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; }
+    .principle-index { color: var(--accent-strong); font-family: var(--serif); font-size: 14px; }
+    .principle h3 { margin: 0; font-size: 16px; font-weight: 650; line-height: 1.4; }
+    .principle p { margin: 0 0 0 29px; color: var(--muted); font-size: 14px; line-height: 1.65; }
 
-    .methodology { padding: 86px 0 104px; animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
+    .methodology { padding: 86px 0 104px; background: var(--paper); animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
     .methodology-back { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 30px; color: var(--accent-strong); font-size: 12px; font-weight: 650; transition: color .2s ease, gap .2s ease; }
     .methodology-back:hover { gap: 13px; color: var(--accent-hover); }
     .methodology-back span { font-size: 17px; line-height: 1; }
     .methodology-heading { max-width: 760px; margin-bottom: 58px; }
     .methodology-heading h1 { max-width: 760px; margin: 18px 0; font-size: clamp(43px, 6vw, 70px); }
     .methodology-heading > p { max-width: 710px; color: var(--muted); font-size: 16px; line-height: 1.85; }
-    .methodology-steps-heading { margin: 0 0 20px; font-family: var(--serif); font-size: 29px; font-weight: 400; }
-    .methodology-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 38px; margin: 0; padding: 0; list-style: none; }
-    .methodology-step { padding: 24px 0 27px; border-top: 1px solid var(--line); }
-    .methodology-step:last-child { grid-column: 1 / -1; }
-    .methodology-step h3 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 12px; font-family: var(--serif); font-size: 20px; font-weight: 400; }
-    .methodology-step h3 span { flex: 0 0 auto; color: var(--accent-strong); font-size: 16px; }
-    .methodology-step p { max-width: 500px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .methodology-steps-band { padding: 46px 0 52px; background: #091b2b; color: #f3eee4; --accent-strong: #edc991; --muted: #c0c9d0; }
+    .methodology-steps-heading { margin: 0 0 20px; color: #f3eee4; font-family: var(--serif); font-size: 29px; font-weight: 400; }
+    .methodology-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .methodology-step { display: flex; min-height: 300px; flex-direction: column; padding: 28px 27px 25px; border: 0; border-radius: 3px; background: #142c42; color: #f3eee4; }
+    .methodology-step h3 { margin: 0 0 15px; color: #f3eee4; font-family: var(--sans); font-size: 25px; font-weight: 700; letter-spacing: -.04em; line-height: 1.2; }
+    .methodology-step h3 span { display: block; margin-bottom: 25px; color: var(--accent-strong); font-family: var(--sans); font-size: 14px; font-weight: 500; letter-spacing: 0; }
+    .methodology-step p { max-width: 500px; margin: 0; color: #c0c9d0; font-size: 15px; line-height: 1.6; }
     .methodology-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 44px; padding: 30px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .methodology-notes h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 25px; font-weight: 400; }
     .methodology-notes p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
@@ -325,7 +253,7 @@
     .methodology-cta p { max-width: 440px; margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .methodology-cta .button { flex: 0 0 auto; }
 
-    .about-page { padding: 86px 0 104px; animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
+    .about-page { padding: 86px 0 104px; background: var(--paper); animation: page-arrive .4s both cubic-bezier(.2,.75,.25,1); }
     .about-page-heading { max-width: 980px; margin-bottom: 38px; }
     .about-page-heading h1 { max-width: 920px; margin: 18px 0 20px; font-family: var(--sans); font-size: clamp(39px, 5.3vw, 62px); font-weight: 700; letter-spacing: -.045em; line-height: 1.14; }
     .about-page-heading p { margin: 0 0 14px; color: var(--muted); font-size: 16px; line-height: 1.85; }
@@ -347,33 +275,40 @@
     .values-list li::before { color: var(--accent-strong); content: "—"; }
     .about-page-tagline { margin: 47px 0 0; color: var(--accent-strong); font-family: var(--serif); font-size: 22px; font-style: italic; }
 
-    .contact { position: relative; overflow: hidden; margin-top: clamp(32px, 5vw, 64px); padding: 83px 0; background: var(--section-surface); color: var(--ink); transition: background-color .3s ease; }
-    .contact:after { position: absolute; top: -225px; right: -110px; width: 560px; height: 560px; border: 1px solid var(--accent-wash); border-radius: 50%; content: ""; box-shadow: 0 0 0 55px var(--section-surface), 0 0 0 56px var(--accent-soft), 0 0 0 116px var(--section-surface), 0 0 0 117px var(--accent-wash); }
-    .contact-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 28px 35px; }
+    .contact { padding: 83px 0; background: var(--paper); color: var(--ink); }
+    .contact-inner { max-width: 980px; }
+    .contact-intro { display: grid; grid-template-columns: minmax(0, 1fr) clamp(180px, 24vw, 280px); align-items: center; gap: 28px; }
     .contact .eyebrow { color: var(--accent-strong); }
     .contact h2 { max-width: 580px; margin-top: 15px; font-size: clamp(39px, 5vw, 59px); }
-    .contact-copy { max-width: 390px; margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
-    .contact-team-photo { width: clamp(180px, 24vw, 290px); flex: 0 1 290px; margin: 12px 0 0; }
-    .contact-team-photo img { display: block; width: 100%; height: auto; -webkit-mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 1%, #000 99%, transparent), linear-gradient(to bottom, transparent, #000 1%, #000 99%, transparent); mask-composite: intersect; }
-    .contact-action { grid-column: 1 / -1; justify-self: end; }
-    .contact-dialog { width: min(440px, calc(100% - 32px)); padding: 30px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: 0 24px 80px var(--card-shadow); }
-    .contact-dialog::backdrop { background: rgba(4, 15, 25, .7); backdrop-filter: blur(4px); }
-    .contact-dialog h2 { margin: 0 0 10px; font-family: var(--serif); font-size: 32px; font-weight: 400; }
-    .contact-dialog-copy { margin: 0 0 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
-    .contact-options { display: grid; gap: 10px; }
-    .contact-option { display: flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 16px; border: 1px solid var(--accent); background: var(--accent); color: var(--button-ink); font-size: 13px; font-weight: 650; transition: background-color .2s, border-color .2s; }
-    .contact-option:hover:not(:disabled) { border-color: var(--accent-hover); background: var(--accent-hover); }
-    .contact-option:disabled { border-color: var(--line); background: var(--section-surface); color: var(--muted); cursor: not-allowed; }
-    .contact-form { display: grid; gap: 13px; }
-    .contact-form[hidden], .contact-options[hidden] { display: none; }
-    .contact-form label { display: grid; gap: 6px; color: var(--ink); font-size: 12px; font-weight: 600; }
-    .contact-form input, .contact-form textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 2px; background: var(--paper); color: var(--ink); font: inherit; font-size: 13px; }
-    .contact-form textarea { min-height: 90px; resize: vertical; }
-    .contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
-    .contact-form .contact-option { width: 100%; font: inherit; font-size: 13px; }
-    .contact-dialog-note { margin: 14px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
-    .contact-dialog-close { display: block; margin: 18px 0 0 auto; padding: 8px 0; border: 0; background: transparent; color: var(--accent-strong); font-size: 12px; font-weight: 650; cursor: pointer; }
-    .contact-dialog-close[hidden] { display: none; }
+    .contact h2 em { color: var(--accent-strong); font-weight: 400; }
+    .contact-copy { max-width: 650px; margin: 18px 0 34px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+    .contact-team-photo { width: 100%; margin: 0; }
+    .contact-team-photo img { display: block; width: 100%; height: clamp(150px, 19vw, 220px); border-radius: 3px; object-fit: cover; object-position: center 35%; }
+    .contact-details { margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .contact-detail { display: grid; grid-template-columns: 98px minmax(0, 1fr); gap: 0 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .contact-detail dt { color: var(--accent-strong); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+    .contact-detail dd { margin: 0; font-size: 16px; }
+    .contact-detail a { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+    .contact-detail a:hover { color: var(--accent-strong); }
+    .contact-detail-note { display: block; margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .contact-socials { display: flex; gap: 8px; align-items: baseline; }
+    .contact-socials span + span::before { margin-right: 8px; color: var(--accent-strong); content: "·"; }
+    .contact-bottom { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: start; gap: 42px; margin-top: 25px; }
+    .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; padding: 32px 30px 28px; border: 0; background: var(--section-surface); color: var(--ink); }
+    .contact-form label { display: grid; gap: 8px; color: var(--ink); font-size: 10px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; }
+    .contact-form label > span { display: block; }
+    .contact-form input:not([type="checkbox"]), .contact-form select, .contact-form textarea { width: 100%; min-height: 46px; padding: 0 14px; border: 0; border-radius: 2px; background: var(--white); color: var(--ink); font: 400 14px var(--sans); letter-spacing: 0; text-transform: none; }
+    .contact-form textarea { min-height: 110px; padding-top: 12px; resize: vertical; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); opacity: 1; }
+    .contact-form select:invalid { color: var(--muted); }
+    .contact-form option { color: var(--ink); background: var(--white); }
+    .contact-form input:focus-visible, .contact-form select:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid #d6aa67; outline-offset: 2px; }
+    .contact-form-wide { grid-column: 1 / -1; }
+    .contact-consent { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 10px; color: var(--ink); font-size: 12px; line-height: 1.55; }
+    .contact-consent input { width: 16px; height: 16px; margin: 1px 0 0; accent-color: #d6aa67; }
+    .contact-submit { grid-column: 1 / -1; min-height: 54px; border: 1px solid #d6aa67; border-radius: 2px; background: #d6aa67; color: #14283b; cursor: pointer; font: 600 12px var(--sans); letter-spacing: .15em; text-transform: uppercase; transition: background .2s, border-color .2s; }
+    .contact-submit:hover { border-color: #edc991; background: #edc991; }
+    .contact-form-note { grid-column: 1 / -1; margin: -3px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; text-align: center; }
 
     footer { padding: 28px 0; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
     .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
@@ -407,11 +342,11 @@
       .hero-visual { min-height: 350px; }
       .visual-card { top: 20px; }
       .trust-inner { min-height: 100px; }
-      .trust-items { gap: 10px; }
-      .trust-item { font-size: 12px; }
-      .about-grid { gap: 45px; }
-      .contact-inner { grid-template-columns: minmax(0, 1fr) auto; }
-      .contact-team-photo { width: min(38%, 240px); flex-basis: 200px; }
+      .trust-item { padding-right: 3vw; padding-left: 3vw; font-size: 17px; }
+      .methodology-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-grid { column-gap: 45px; }
+      .contact-bottom { grid-template-columns: 1fr; gap: 30px; }
+      .contact-details { max-width: none; }
     }
     @media (max-width: 640px) {
       .container { width: calc(100% - 40px); }
@@ -419,7 +354,6 @@
       .header-actions { gap: 8px; }
       .brand-logo { width: 84px; }
       .brand-description { font-size: 8px; letter-spacing: .05em; }
-      .theme-toggle { width: 42px; height: 42px; min-height: 42px; padding: 0; }
       .nav-contact-desktop { display: none; }
       .nav-contact-mobile { display: block; }
       .menu-toggle { display: inline-flex; width: 42px; height: 42px; align-items: center; justify-content: center; }
@@ -435,13 +369,17 @@
       .hero-visual { min-height: 250px; }
       .visual-card { top: 0; right: 0; width: calc(100% - 13px); }
       html { scroll-padding-top: 70px; }
-      .trust-inner { min-height: 0; padding: 21px 0; }
-      .trust-items { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 8px; }
-      .trust-item { font-size: 11px; line-height: 1.45; }
-      .trust-item span { font-size: 7px; }
+      .trust-inner { min-height: 0; }
+      .trust-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .trust-item { padding: 14px 12px; border-right: 1px solid rgba(255, 255, 255, .14); border-bottom: 1px solid rgba(255, 255, 255, .14); font-size: 16px; line-height: 1.35; white-space: normal; }
+      .trust-item:nth-child(even) { border-right: 0; }
+      .trust-item:nth-child(n+3) { border-bottom: 0; }
+      .trust-item span { font-size: 8px; }
       .section { padding: 74px 0; }
       .section-heading { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 30px; }
-      .section-heading h2, .about-copy h2 { font-size: 42px; }
+      .section-heading h2 { font-size: 42px; }
+      .about-heading h2 { font-size: clamp(46px, 12vw, 58px); }
+      .about-copy p.about-lead { padding-left: 18px; font-size: 23px; }
       .section-intro { font-size: 12px; }
       .services-grid { grid-template-columns: 1fr; }
       .service-card { min-height: 0; padding: 24px 22px; }
@@ -454,9 +392,11 @@
       .service-areas-list { grid-template-columns: 1fr; gap: 9px; }
       .service-areas-list li { min-height: 64px; padding: 15px 16px; font-size: 14px; }
       .about { padding: 65px 0; }
-      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-grid { grid-template-columns: 1fr; grid-template-rows: auto; row-gap: 0; }
+      .about-heading, .about-copy, .principles { grid-column: 1; grid-row: auto; }
+      .about-copy { margin-top: 33px; }
       .about-copy p { font-size: 13px; }
-      .principles { gap: 0 20px; }
+      .principles { grid-template-columns: 1fr; gap: 0; margin-top: 36px; }
       .methodology { padding: 62px 0 76px; }
       .methodology-back { margin-bottom: 25px; }
       .methodology-heading { margin-bottom: 40px; }
@@ -464,9 +404,10 @@
       .methodology-heading > p { font-size: 14px; }
       .methodology-steps-heading { font-size: 25px; }
       .methodology-steps { grid-template-columns: 1fr; }
-      .methodology-step:last-child { grid-column: auto; }
-      .methodology-step { padding: 21px 0; }
+      .methodology-steps-band { padding: 34px 0 40px; }
+      .methodology-step { min-height: 0; padding: 24px 22px; }
       .methodology-step h3 { font-size: 19px; }
+      .methodology-step h3 span { margin-bottom: 18px; }
       .methodology-notes { grid-template-columns: 1fr; gap: 26px; margin-top: 30px; padding: 26px 0; }
       .methodology-notes h2 { font-size: 23px; }
       .methodology-cta { align-items: flex-start; flex-direction: column; margin-top: 42px; }
@@ -485,11 +426,15 @@
       .purpose-card h2 { font-size: 24px; }
       .about-page-tagline { margin-top: 30px; font-size: 20px; }
       .contact { padding: 67px 0; }
-      .contact-inner { display: flex; align-items: flex-start; flex-direction: column; gap: 25px; }
-      .contact-team-photo { width: min(100%, 310px); flex: 0 0 auto; margin-top: 0; }
-      .contact-dialog { padding: 25px 20px; }
-      .contact-dialog { max-height: calc(100% - 32px); overflow-y: auto; }
-      .contact h2 { font-size: 46px; }
+      .contact-inner { width: calc(100% - 40px); margin: 0 auto; }
+      .contact-intro { grid-template-columns: minmax(0, 1fr) 120px; align-items: start; gap: 14px; }
+      .contact-team-photo img { height: 132px; }
+      .contact h2 { font-size: clamp(43px, 11vw, 52px); }
+      .contact-copy { grid-column: 1 / -1; font-size: 16px; }
+      .contact-detail { grid-template-columns: 82px minmax(0, 1fr); gap: 0 12px; }
+      .contact-bottom { gap: 26px; margin-top: 20px; }
+      .contact-form { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+      .contact-form-wide, .contact-submit, .contact-form-note { grid-column: 1; }
       .footer-inner { align-items: flex-start; flex-direction: column; gap: 22px; }
       .footer-brand .brand-logo { width: 96px; }
       .footer-tagline { font-size: 16px; }
@@ -506,7 +451,6 @@
     <div class="container topbar-inner">
       <a class="brand" href="#inicio" aria-label="AR/CC — início">
         <img class="brand-logo brand-logo-dark" src="assets/logo-ar-cc.svg" alt="">
-        <img class="brand-logo brand-logo-light" src="assets/logo-ar-cc-claro.svg" alt="">
         <span class="brand-description"><span>Auditoria · Consultoria</span><span>Gestão de riscos</span></span>
       </a>
       <nav class="nav" id="main-nav" aria-label="Navegação principal">
@@ -519,13 +463,6 @@
       </nav>
       <div class="header-actions">
         <a class="header-contact-link nav-contact-desktop" href="#contacto">Contactos</a>
-        <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-label="Tema claro" aria-checked="false">
-          <span class="theme-switch" aria-hidden="true">
-            <svg class="theme-switch-icon" viewBox="0 0 24 24"><path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/></svg>
-            <svg class="theme-switch-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <span class="theme-switch-thumb"><svg id="theme-thumb-icon" viewBox="0 0 24 24"></svg></span>
-          </span>
-        </button>
         <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -550,7 +487,6 @@
         <div class="hero-visual">
           <div class="visual-card">
             <img class="hero-art hero-art-dark" src="assets/hero-ar-cc-claro.svg?v=3" alt="Identidade AR/CC em fundo marfim e azul-marinho, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
-            <img class="hero-art hero-art-light" src="assets/hero-ar-cc-escuro.svg?v=3" alt="Identidade AR/CC em azul-marinho e dourado, para consultoria, auditoria e gestão de riscos, com os nomes Andreia Rocha e Cláudia Coimbra" width="1250" height="644">
           </div>
         </div>
       </div>
@@ -619,10 +555,12 @@
 
     <section class="about" id="abordagem">
       <div class="container about-grid">
-        <div class="about-copy">
+        <div class="about-heading">
           <span class="eyebrow">A nossa abordagem</span>
-          <h2>Do diagnóstico à mudança que importa.</h2>
-          <p>Acreditamos que uma auditoria deve ir além da identificação de fragilidades. O verdadeiro valor está em compreender os processos, reconhecer os riscos e propor melhorias concretas, ajustadas à realidade de cada organização.</p>
+          <h2>Do diagnóstico à<br><em>mudança</em> que<br>importa.</h2>
+        </div>
+        <div class="about-copy">
+          <p class="about-lead">Acreditamos que uma auditoria deve ir além da identificação de fragilidades. O verdadeiro valor está em compreender os processos, reconhecer os riscos e propor <em>melhorias concretas</em>, ajustadas à realidade de cada organização.</p>
           <p>Trabalhamos em proximidade com os nossos clientes, combinando rigor técnico, análise fundamentada e soluções orientadas para resultados.</p>
           <a class="about-link" href="#metodologia">Conheça a nossa metodologia <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
@@ -649,62 +587,93 @@
 
     <section class="contact" id="contacto">
       <div class="container contact-inner">
-        <div>
-          <span class="eyebrow">O próximo passo começa aqui</span>
-          <h2>Uma conversa pode mudar a perspetiva.</h2>
-          <p class="contact-copy">Conheça como uma auditoria interna independente pode apoiar a sua empresa.</p>
+        <div class="contact-intro">
+          <div>
+          <span class="eyebrow">Contactos</span>
+          <h2>Vamos começar por<br>uma <em>conversa.</em></h2>
+          </div>
+          <figure class="contact-team-photo">
+            <img src="assets/fundadoras.jpg" alt="Andreia Rocha e Cláudia Coimbra juntas" width="1024" height="768" loading="lazy" decoding="async">
+          </figure>
+          <p class="contact-copy">Descreva-nos brevemente o contexto da sua organização. Responderemos com uma primeira leitura e uma proposta de próximos passos, sem compromisso.</p>
         </div>
-        <figure class="contact-team-photo">
-          <img src="assets/fundadoras.jpg" alt="Andreia Rocha e Cláudia Coimbra juntas" width="1024" height="768" loading="lazy" decoding="async">
-        </figure>
-        <div class="contact-action">
-          <button class="button" id="open-contact-dialog" type="button">Contactos <span class="arrow" aria-hidden="true">↗</span></button>
+        <div class="contact-bottom">
+          <dl class="contact-details">
+            <div class="contact-detail">
+              <dt>E-mail</dt>
+              <dd><a href="mailto:geral@ar-cc.pt">geral@ar-cc.pt</a><span class="contact-detail-note">Resposta habitual em 2 dias úteis</span></dd>
+            </div>
+            <div class="contact-detail">
+              <dt>Telefone</dt>
+              <dd>+351 000 000 000<span class="contact-detail-note">Número provisório · Dias úteis, 9h00–18h00</span></dd>
+            </div>
+            <div class="contact-detail">
+              <dt>Localização</dt>
+              <dd>Portugal<span class="contact-detail-note">Reuniões presenciais ou por videoconferência</span></dd>
+            </div>
+            <div class="contact-detail">
+              <dt>Redes</dt>
+              <dd class="contact-socials"><span>LinkedIn</span><span>Instagram</span></dd>
+            </div>
+          </dl>
+          <form class="contact-form" id="contact-form">
+            <label>
+              <span>Nome *</span>
+              <input name="name" type="text" autocomplete="name" placeholder="O seu nome" required>
+            </label>
+            <label>
+              <span>Organização</span>
+              <input name="organization" type="text" autocomplete="organization" placeholder="Nome da organização">
+            </label>
+            <label>
+              <span>E-mail *</span>
+              <input name="email" type="email" autocomplete="email" placeholder="nome@organizacao.pt" required>
+            </label>
+            <label>
+              <span>Telefone</span>
+              <input name="phone" type="tel" autocomplete="tel" placeholder="Opcional">
+            </label>
+            <label class="contact-form-wide">
+              <span>Assunto *</span>
+              <select name="subject" required>
+                <option value="" selected disabled>Selecione uma área</option>
+                <option>Auditoria interna</option>
+                <option>Gestão de riscos</option>
+                <option>Controlo interno</option>
+                <option>Consultoria</option>
+                <option>Outro assunto</option>
+              </select>
+            </label>
+            <label class="contact-form-wide">
+              <span>Mensagem *</span>
+              <textarea name="message" placeholder="Contexto, objetivos e prazos, se aplicável." required></textarea>
+            </label>
+            <label class="contact-consent contact-form-wide">
+              <input name="consent" type="checkbox" required>
+              <span>Autorizo a utilização dos dados fornecidos para resposta a este contacto.</span>
+            </label>
+            <button class="contact-submit" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
+            <p class="contact-form-note">Ao enviar, será aberto o seu programa de e-mail com a mensagem preparada. Os campos assinalados com * são obrigatórios.</p>
+          </form>
         </div>
       </div>
     </section>
   </main>
-
-  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-copy">
-    <h2 id="contact-dialog-title">Escolha como prefere contactar</h2>
-    <p class="contact-dialog-copy" id="contact-dialog-copy">Estamos disponíveis para conversar sobre as necessidades da sua organização.</p>
-    <div class="contact-options">
-      <a class="contact-option" href="tel:+351000000000">Ligar — +351 000 000 000</a>
-      <a class="contact-option" href="https://wa.me/351000000000" target="_blank" rel="noopener noreferrer">WhatsApp — +351 000 000 000</a>
-      <button class="contact-option" type="button" disabled>Email — em breve</button>
-      <button class="contact-option" id="show-contact-form" type="button">Deixe os seus dados para contacto posterior</button>
-    </div>
-    <p class="contact-dialog-note">O número indicado é fictício e será substituído pelos contactos definitivos.</p>
-    <form class="contact-form" id="contact-form" hidden>
-      <label for="contact-name">Nome
-        <input id="contact-name" name="name" type="text" autocomplete="name" required>
-      </label>
-      <label for="contact-email">Email
-        <input id="contact-email" name="email" type="email" autocomplete="email" required>
-      </label>
-      <label for="contact-phone">Telefone (opcional)
-        <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
-      </label>
-      <label for="contact-message">Como podemos ajudar?
-        <textarea id="contact-message" name="message" required></textarea>
-      </label>
-      <button class="contact-option" type="submit" disabled>Envio ainda não disponível</button>
-    </form>
-    <p class="contact-dialog-note" id="contact-form-note" hidden>O formulário ainda não está ligado a um serviço de receção. Os dados preenchidos não serão enviados nem guardados.</p>
-    <button class="contact-dialog-close" id="show-contact-options" type="button" hidden>Voltar às opções de contacto</button>
-    <button class="contact-dialog-close" id="close-contact-dialog" type="button">Fechar</button>
-  </dialog>
 
   <main id="methodology-view" hidden>
     <section class="methodology">
       <div class="container">
         <a class="methodology-back" href="#inicio"><span aria-hidden="true">←</span> Voltar ao início </a>
         <div class="methodology-heading">
-          <span class="eyebrow">A nossa metodologia</span>
-          <h1 id="methodology-title" tabindex="-1">Um método claro.<br>Resultados que importam.</h1>
+          <span class="eyebrow">Metodologia</span>
+          <h1 id="methodology-title" tabindex="-1">Um percurso claro, do<br>primeiro contacto ao<br><em>acompanhamento.</em></h1>
           <p>Trabalhamos com uma metodologia estruturada, adaptada à realidade de cada organização. Da identificação de riscos à monitorização dos resultados, privilegiamos a análise fundamentada, a definição de prioridades e o acompanhamento das melhorias.</p>
         </div>
-        <h2 class="methodology-steps-heading">Analisar. Melhorar. Evoluir.</h2>
-        <ol class="methodology-steps">
+      </div>
+      <div class="methodology-steps-band">
+        <div class="container">
+          <h2 class="methodology-steps-heading">Analisar. Melhorar. Evoluir.</h2>
+          <ol class="methodology-steps">
           <li class="methodology-step">
             <h3><span>01 —</span> Diagnóstico e levantamento</h3>
             <p>Conhecemos a organização, analisamos documentos e processos, ouvimos os intervenientes e identificamos necessidades, riscos e fragilidades.</p>
@@ -725,7 +694,10 @@
             <h3><span>05 —</span> Melhoria contínua e reporte</h3>
             <p>Analisamos indicadores, comunicamos os resultados e identificamos oportunidades para novos ciclos de melhoria.</p>
           </li>
-        </ol>
+          </ol>
+        </div>
+      </div>
+      <div class="container">
         <div class="methodology-notes">
           <div>
             <h2>Uma intervenção ajustada a cada organização</h2>
@@ -813,7 +785,6 @@
     <div class="container footer-inner">
       <a class="brand footer-brand" href="#inicio" aria-label="AR/CC — início">
         <img class="brand-logo brand-logo-dark" src="assets/logo-ar-cc.svg" alt="">
-        <img class="brand-logo brand-logo-light" src="assets/logo-ar-cc-claro.svg" alt="">
         <span class="footer-tagline">Analisar. Melhorar. Evoluir.</span>
       </a>
       <div class="footer-meta">
@@ -828,7 +799,6 @@
   <script>
     const menuToggle = document.querySelector(".menu-toggle");
     const navigation = document.querySelector("#main-nav");
-    const themeToggle = document.querySelector("#theme-toggle");
     const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
     const homeView = document.querySelector("#home-view");
     const methodologyView = document.querySelector("#methodology-view");
@@ -858,63 +828,6 @@
     window.addEventListener("hashchange", () => renderRoute());
     renderRoute(true);
 
-    const contactDialog = document.querySelector("#contact-dialog");
-    const openContactDialog = document.querySelector("#open-contact-dialog");
-    const contactOptions = document.querySelector(".contact-options");
-    const contactForm = document.querySelector("#contact-form");
-    const contactFormNote = document.querySelector("#contact-form-note");
-    const showContactOptions = document.querySelector("#show-contact-options");
-    openContactDialog.addEventListener("click", () => contactDialog.showModal());
-    document.querySelector("#close-contact-dialog").addEventListener("click", () => contactDialog.close());
-    document.querySelector("#show-contact-form").addEventListener("click", () => {
-      contactOptions.hidden = true;
-      document.querySelector(".contact-dialog-note").hidden = true;
-      contactForm.hidden = false;
-      contactFormNote.hidden = false;
-      showContactOptions.hidden = false;
-      document.querySelector("#contact-dialog-title").textContent = "Deixe os seus dados de contacto";
-      document.querySelector("#contact-name").focus();
-    });
-    showContactOptions.addEventListener("click", () => {
-      contactForm.hidden = true;
-      contactFormNote.hidden = true;
-      showContactOptions.hidden = true;
-      contactOptions.hidden = false;
-      document.querySelector(".contact-dialog-note").hidden = false;
-      document.querySelector("#contact-dialog-title").textContent = "Escolha como prefere contactar";
-      document.querySelector("#show-contact-form").focus();
-    });
-    contactDialog.addEventListener("click", (event) => {
-      if (event.target === contactDialog) contactDialog.close();
-    });
-    contactDialog.addEventListener("close", () => {
-      contactForm.reset();
-      contactForm.hidden = true;
-      contactFormNote.hidden = true;
-      showContactOptions.hidden = true;
-      contactOptions.hidden = false;
-      document.querySelector(".contact-dialog-note").hidden = false;
-      document.querySelector("#contact-dialog-title").textContent = "Escolha como prefere contactar";
-    });
-
-    const updateThemeControl = () => {
-      const isLight = document.documentElement.dataset.theme === "light";
-      const actionLabel = isLight ? "Ativar tema escuro" : "Ativar tema claro";
-      themeToggle.setAttribute("aria-label", actionLabel);
-      themeToggle.setAttribute("aria-checked", String(isLight));
-      document.querySelector("#theme-thumb-icon").innerHTML = isLight
-        ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
-        : '<path d="M20.8 13A8.7 8.7 0 0 1 11 3.2 8.8 8.8 0 1 0 20.8 13Z"/>';
-      document.querySelector('meta[name="theme-color"]').content = isLight ? "#f7f3eb" : "#091b2b";
-    };
-    updateThemeControl();
-    themeToggle.addEventListener("click", () => {
-      const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-      document.documentElement.dataset.theme = nextTheme;
-      localStorage.setItem("nexo-theme", nextTheme);
-      updateThemeControl();
-    });
-
     const closeMenu = () => {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Abrir menu");
@@ -943,7 +856,7 @@
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const animatedElements = document.querySelectorAll(
-      ".section-heading, .service-card, .service-areas, .about-copy, .principle, .contact-inner, .trust-inner"
+      ".section-heading, .service-card, .service-areas, .contact-inner, .trust-inner"
     );
 
     if ("IntersectionObserver" in window && !reduceMotion) {
@@ -991,6 +904,22 @@
     }
 
     document.querySelector("#year").textContent = new Date().getFullYear();
+
+    document.querySelector("#contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const subject = `[AR/CC] ${formData.get("subject")}`;
+      const message = [
+        `Nome: ${formData.get("name")}`,
+        `Organização: ${formData.get("organization") || "Não indicada"}`,
+        `E-mail: ${formData.get("email")}`,
+        `Telefone: ${formData.get("phone") || "Não indicado"}`,
+        "",
+        "Mensagem:",
+        formData.get("message")
+      ].join("\n");
+      window.location.href = `mailto:geral@ar-cc.pt?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    });
   </script>
 </body>
 </html>
