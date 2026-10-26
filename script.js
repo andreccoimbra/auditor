@@ -4,23 +4,38 @@ const navLinks = [...navigation.querySelectorAll('a[href^="#"]')];
 const homeView = document.querySelector("#home-view");
 const methodologyView = document.querySelector("#methodology-view");
 const aboutView = document.querySelector("#about-view");
+const privacyView = document.querySelector("#privacy-view");
 const homeTitle = document.title;
 const renderRoute = (initial = false) => {
   const isMethodology = window.location.hash === "#metodologia";
   const isAbout = window.location.hash === "#sobre-nos";
-  homeView.hidden = isMethodology || isAbout;
+  const isPrivacy = window.location.hash === "#privacidade" || window.location.hash.startsWith("#privacidade-");
+  homeView.hidden = isMethodology || isAbout || isPrivacy;
   methodologyView.hidden = !isMethodology;
   aboutView.hidden = !isAbout;
+  privacyView.hidden = !isPrivacy;
   document.title = isMethodology
     ? "A nossa metodologia"
     : isAbout
       ? "Sobre nós"
-      : homeTitle;
+      : isPrivacy
+        ? "Política de Privacidade — AR/CC"
+        : homeTitle;
 
   if (isMethodology || isAbout) {
     navLinks.forEach((link) => link.removeAttribute("aria-current"));
     window.scrollTo(0, 0);
     document.querySelector(isMethodology ? "#methodology-title" : "#about-title").focus({ preventScroll: true });
+  } else if (isPrivacy) {
+    navLinks.forEach((link) => link.removeAttribute("aria-current"));
+    if (window.location.hash === "#privacidade") {
+      window.scrollTo(0, 0);
+      document.querySelector("#privacy-title").focus({ preventScroll: true });
+    } else {
+      window.requestAnimationFrame(() => {
+        document.getElementById(decodeURIComponent(window.location.hash.slice(1)))?.scrollIntoView();
+      });
+    }
   } else if (!initial && window.location.hash) {
     const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
     target?.scrollIntoView();
