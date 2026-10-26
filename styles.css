@@ -279,8 +279,8 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
 .privacy-document { min-width: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 .privacy-document p { margin: 0 0 16px; }
 .privacy-document strong { color: var(--ink); font-weight: 600; }
-.privacy-document a { color: var(--accent-strong); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
-.privacy-document a:hover { color: var(--accent-hover); }
+.privacy-document a:not(.button) { color: var(--accent-strong); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.privacy-document a:not(.button):hover { color: var(--accent-hover); }
 .privacy-document h2 { display: flex; flex-direction: column; gap: 10px; margin: 36px 0 14px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink); font-family: var(--serif); font-size: clamp(24px, 2.8vw, 30px); font-weight: 400; letter-spacing: -.035em; line-height: 1.2; scroll-margin-top: 104px; }
 .privacy-document h2 span { color: var(--accent-strong); font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: .1em; line-height: 1; }
 .privacy-document h3 { margin: 23px 0 8px; color: var(--accent-strong); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
