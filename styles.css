@@ -161,11 +161,20 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
   aspect-ratio: 2528 / 1696;
   overflow: hidden;
   border-radius: 0;
-  background: var(--hero-frame);
+  background: transparent;
   color: var(--ink);
 }
-.visual-card { box-shadow: 0 28px 80px var(--card-shadow); animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
-.hero-art { display: block; width: 100%; height: 100%; object-fit: contain; }
+.visual-card { animation: visual-arrive .9s .18s both cubic-bezier(.2,.75,.25,1); }
+.hero-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 1.2%, #000 98.8%, transparent), linear-gradient(to bottom, transparent, #000 1.2%, #000 98.8%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 1.2%, #000 98.8%, transparent), linear-gradient(to bottom, transparent, #000 1.2%, #000 98.8%, transparent);
+  mask-composite: intersect;
+}
 .trust { background: #091b2b; }
 .trust-inner { display: flex; width: 100%; max-width: none; min-height: 112px; padding: 0; }
 .trust-items { display: flex; width: 100%; align-items: stretch; }
@@ -249,7 +258,7 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
 .founders-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 0; }
 .founder-card { padding: 27px 25px 30px; background: var(--surface); }
 .founder-profile { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
-.founder-photo { display: block; width: 112px; height: 144px; flex: 0 0 auto; object-fit: cover; object-position: center 30%; }
+.founder-photo { display: block; width: 112px; height: 144px; flex: 0 0 auto; object-fit: cover; object-position: center 30%; -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent), linear-gradient(to bottom, transparent, #000 3%, #000 97%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent), linear-gradient(to bottom, transparent, #000 3%, #000 97%, transparent); mask-composite: intersect; }
 .founder-card .eyebrow { display: block; margin-bottom: 11px; font-size: 10px; }
 .founder-card h2 { margin: 0; font-family: var(--serif); font-size: 29px; font-weight: 400; letter-spacing: -.035em; }
 .founder-card p { max-width: 510px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
@@ -311,7 +320,7 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
 .contact h2 em { color: var(--accent-strong); font-weight: 400; }
 .contact-copy { max-width: 650px; margin: 18px 0 34px; color: var(--muted); font-size: 18px; line-height: 1.75; }
 .contact-team-photo { width: 100%; margin: 27px 0 0; }
-.contact-team-photo img { display: block; width: 100%; height: clamp(150px, 19vw, 220px); border-radius: 3px; object-fit: cover; object-position: center 35%; }
+.contact-team-photo img { display: block; width: 100%; height: clamp(150px, 19vw, 220px); object-fit: cover; object-position: center 35%; -webkit-mask-image: linear-gradient(to right, transparent, #000 2%, #000 98%, transparent), linear-gradient(to bottom, transparent, #000 2%, #000 98%, transparent); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent, #000 2%, #000 98%, transparent), linear-gradient(to bottom, transparent, #000 2%, #000 98%, transparent); mask-composite: intersect; }
 .contact-details { margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .contact-detail { display: grid; grid-template-columns: 98px minmax(0, 1fr); gap: 0 16px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .contact-detail dt { color: var(--accent-strong); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }

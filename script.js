@@ -134,5 +134,5 @@ document.querySelector("#contact-form").addEventListener("submit", (event) => {
     "Mensagem:",
     formData.get("message")
   ].join("\n");
-  window.location.href = `mailto:geral@ar-cc.pt?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  window.location.href = `mailto:geral@arccpartners.pt?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 });
