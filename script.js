@@ -121,18 +121,41 @@ if ("IntersectionObserver" in window && !reduceMotion) {
 
 document.querySelector("#year").textContent = new Date().getFullYear();
 
-document.querySelector("#contact-form").addEventListener("submit", (event) => {
+const contactForm = document.querySelector("#contact-form");
+const contactFormStatus = document.querySelector("#contact-form-status");
+const contactSubmit = contactForm.querySelector(".contact-submit");
+
+contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const formData = new FormData(event.currentTarget);
-  const subject = `[AR/CC] ${formData.get("subject")}`;
-  const message = [
-    `Nome: ${formData.get("name")}`,
-    `Organização: ${formData.get("organization") || "Não indicada"}`,
-    `E-mail: ${formData.get("email")}`,
-    `Telefone: ${formData.get("phone") || "Não indicado"}`,
-    "",
-    "Mensagem:",
-    formData.get("message")
-  ].join("\n");
-  window.location.href = `mailto:geral@arccpartners.pt?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  const formData = new FormData(contactForm);
+  contactSubmit.disabled = true;
+  contactFormStatus.textContent = "A enviar a sua mensagem...";
+
+  try {
+    const response = await fetch("https://api.arccpartners.pt", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome: formData.get("name"),
+        organizacao: formData.get("organization"),
+        email: formData.get("email"),
+        telefone: formData.get("phone"),
+        assunto: formData.get("subject"),
+        mensagem: formData.get("message"),
+        consentimento: formData.get("consent") === "on"
+      })
+    });
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || "Não foi possível enviar a mensagem.");
+    }
+
+    contactForm.reset();
+    contactFormStatus.textContent = result.message || "Mensagem enviada com sucesso!";
+  } catch (error) {
+    contactFormStatus.textContent = error.message || "Ocorreu um erro ao enviar. Tente novamente mais tarde.";
+  } finally {
+    contactSubmit.disabled = false;
+  }
 });
