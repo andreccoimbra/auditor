@@ -127,6 +127,8 @@ const contactSubmit = contactForm.querySelector(".contact-submit");
 
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  if (contactSubmit.disabled) return;
+
   const formData = new FormData(contactForm);
   contactSubmit.disabled = true;
   contactFormStatus.textContent = "A enviar a sua mensagem...";

@@ -188,23 +188,23 @@
           <form class="contact-form" id="contact-form">
             <label>
               <span>Nome *</span>
-              <input name="name" type="text" autocomplete="name" placeholder="O seu nome" required>
+              <input name="name" type="text" autocomplete="name" placeholder="O seu nome" required disabled>
             </label>
             <label>
               <span>Organização</span>
-              <input name="organization" type="text" autocomplete="organization" placeholder="Nome da organização">
+              <input name="organization" type="text" autocomplete="organization" placeholder="Nome da organização" disabled>
             </label>
             <label>
               <span>E-mail *</span>
-              <input name="email" type="email" autocomplete="email" placeholder="nome@organizacao.pt" required>
+              <input name="email" type="email" autocomplete="email" placeholder="nome@organizacao.pt" required disabled>
             </label>
             <label>
               <span>Telefone</span>
-              <input name="phone" type="tel" autocomplete="tel" placeholder="Opcional">
+              <input name="phone" type="tel" autocomplete="tel" placeholder="Opcional" disabled>
             </label>
             <label class="contact-form-wide">
               <span>Assunto *</span>
-              <select name="subject" required>
+              <select name="subject" required disabled>
                 <option value="" selected disabled>Selecione uma área</option>
                 <option>Auditoria interna</option>
                 <option>Gestão de riscos</option>
@@ -215,14 +215,14 @@
             </label>
             <label class="contact-form-wide">
               <span>Mensagem *</span>
-              <textarea name="message" placeholder="Contexto, objetivos e prazos, se aplicável." required></textarea>
+              <textarea name="message" placeholder="Contexto, objetivos e prazos, se aplicável." required disabled></textarea>
             </label>
             <label class="contact-consent contact-form-wide">
-              <input name="consent" type="checkbox" required>
+              <input name="consent" type="checkbox" required disabled>
               <span>Autorizo a utilização dos dados fornecidos para resposta a este contacto.</span>
             </label>
-            <button class="contact-submit" type="submit">Enviar mensagem <span aria-hidden="true">→</span></button>
-            <p class="contact-form-note" id="contact-form-status" role="status" aria-live="polite">A mensagem será enviada à nossa equipa. Os campos assinalados com * são obrigatórios.</p>
+            <button class="contact-submit" type="submit" disabled>Envio temporariamente indisponível</button>
+            <p class="contact-form-note" id="contact-form-status" role="status" aria-live="polite">O formulário estará disponível brevemente. Estamos a concluir a configuração do serviço de envio.</p>
           </form>
         </div>
       </div>

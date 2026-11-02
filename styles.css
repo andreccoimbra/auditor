@@ -340,11 +340,14 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
 .contact-form select:invalid { color: var(--muted); }
 .contact-form option { color: var(--ink); background: var(--white); }
 .contact-form input:focus-visible, .contact-form select:focus-visible, .contact-form textarea:focus-visible { outline: 2px solid #d6aa67; outline-offset: 2px; }
+.contact-form input:disabled, .contact-form select:disabled, .contact-form textarea:disabled { background: color-mix(in srgb, var(--white) 72%, var(--section-surface)); color: var(--muted); cursor: not-allowed; }
+.contact-form label:has(:disabled) { color: var(--muted); }
 .contact-form-wide { grid-column: 1 / -1; }
 .contact-consent { display: grid; grid-template-columns: 18px minmax(0, 1fr); align-items: start; gap: 10px; color: var(--ink); font-size: 12px; line-height: 1.55; }
 .contact-consent input { width: 16px; height: 16px; margin: 1px 0 0; accent-color: #d6aa67; }
 .contact-submit { grid-column: 1 / -1; min-height: 54px; border: 1px solid #d6aa67; border-radius: 2px; background: #d6aa67; color: #14283b; cursor: pointer; font: 600 12px var(--sans); letter-spacing: .15em; text-transform: uppercase; transition: background .2s, border-color .2s; }
 .contact-submit:hover { border-color: #edc991; background: #edc991; }
+.contact-submit:disabled, .contact-submit:disabled:hover { border-color: var(--line); background: color-mix(in srgb, var(--white) 72%, var(--section-surface)); color: var(--muted); cursor: not-allowed; }
 .contact-form-note { grid-column: 1 / -1; margin: -3px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; text-align: center; }
 
 footer { padding: 54px 0 38px; background: var(--footer-bg); color: var(--footer-ink); transition: background-color .3s ease, color .3s ease; }
