@@ -300,6 +300,7 @@ h1 em { color: var(--accent-strong); font-weight: 400; }
 .privacy-legend { padding-left: 14px; border-left: 2px solid var(--accent); }
 .privacy-legend strong { font-weight: 500; }
 .privacy-placeholder { padding: 0 3px; border-bottom: 1px dashed var(--accent); background: rgba(185, 135, 62, .12); color: var(--accent-strong); }
+.privacy-hero .methodology-back { display: flex; width: fit-content; }
 .privacy-notice { margin: 20px 0 30px; padding: 16px 17px; border: 1px solid rgba(185, 135, 62, .45); background: rgba(185, 135, 62, .09); }
 .privacy-table-wrap { max-width: 100%; margin: 18px 0; overflow-x: auto; }
 .privacy-table-wrap table { width: 100%; border-collapse: collapse; color: var(--muted); font-size: 12px; line-height: 1.6; }
